@@ -33,36 +33,36 @@
       <ul class="nav__links">
         <li class="nav__item">
           <button class="nav__link">
-            Our Services
+            <span data-i18n="nav.services">Our Services</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="nav__dropdown">
-            <div class="nav__dropdown-label">Our Services</div>
-            <a href="services/city-to-city.html" class="nav__dropdown-item">🛣 City-to-City Rides</a>
-            <a href="services/airport-transfer.html" class="nav__dropdown-item">✈️ Airport Transfers</a>
-            <a href="services/hourly-hire.html" class="nav__dropdown-item">⏱ Hourly Hire</a>
-            <a href="services/chauffeur.html" class="nav__dropdown-item">🎩 Chauffeur Service</a>
+            <div class="nav__dropdown-label" data-i18n="nav.dd.services">Our Services</div>
+            <a href="services/city-to-city.html" class="nav__dropdown-item" data-i18n="nav.dd.city">🛣 City-to-City Rides</a>
+            <a href="services/airport-transfer.html" class="nav__dropdown-item" data-i18n="nav.dd.airport">✈️ Airport Transfers</a>
+            <a href="services/hourly-hire.html" class="nav__dropdown-item" data-i18n="nav.dd.hourly">⏱ Hourly Hire</a>
+            <a href="services/chauffeur.html" class="nav__dropdown-item" data-i18n="nav.dd.chauffeur">🎩 Chauffeur Service</a>
           </div>
         </li>
         <li class="nav__item">
           <button class="nav__link">
-            For Business
+            <span data-i18n="nav.business">For Business</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="nav__dropdown">
-            <div class="nav__dropdown-label">Corporate Solutions</div>
-            <a href="#" class="nav__dropdown-item">🚌 Official Group Vehicle</a>
-            <a href="#" class="nav__dropdown-item">🏨 Travel Agencies</a>
+            <div class="nav__dropdown-label" data-i18n="nav.dd.corp">Corporate Solutions</div>
+            <a href="#" class="nav__dropdown-item" data-i18n="nav.dd.group">🚌 Official Group Vehicle</a>
+            <a href="#" class="nav__dropdown-item" data-i18n="nav.dd.travel">🏨 Travel Agencies</a>
             <div class="nav__dropdown-divider"></div>
-            <div class="nav__dropdown-label">Strategic Partnerships</div>
-            <a href="#" class="nav__dropdown-item">✈️ Aviation</a>
-            <a href="#" class="nav__dropdown-item">🚢 Cruise</a>
-            <a href="#" class="nav__dropdown-item">💳 Financial Services</a>
-            <a href="#" class="nav__dropdown-item">🏩 Hotel</a>
+            <div class="nav__dropdown-label" data-i18n="nav.dd.partner">Strategic Partnerships</div>
+            <a href="#" class="nav__dropdown-item" data-i18n="nav.dd.aviation">✈️ Aviation</a>
+            <a href="#" class="nav__dropdown-item" data-i18n="nav.dd.cruise">🚢 Cruise</a>
+            <a href="#" class="nav__dropdown-item" data-i18n="nav.dd.finance">💳 Financial Services</a>
+            <a href="#" class="nav__dropdown-item" data-i18n="nav.dd.hotel">🏩 Hotel</a>
           </div>
         </li>
         <li class="nav__item">
-          <a href="help/index.html" class="nav__link">Help</a>
+          <a href="help/index.html" class="nav__link" data-i18n="nav.help">Help</a>
         </li>
       </ul>
 
@@ -73,8 +73,8 @@
           <span id="langLabel">EN</span>
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <a href="#loginModal" class="btn btn--outline btn--sm btn--round" onclick="openModal('loginModal')">Sign In</a>
-        <a href="booking/select-class.html" class="btn btn--gold btn--sm btn--round">Book a Ride</a>
+        <a href="#loginModal" class="btn btn--outline btn--sm btn--round" onclick="openModal('loginModal')" data-i18n="nav.signin">Sign In</a>
+        <a href="booking/select-class.html" class="btn btn--gold btn--sm btn--round" data-i18n="nav.book">Book a Ride</a>
         <button class="nav__hamburger" id="navHamburger" onclick="toggleMobileMenu()" aria-label="Menu">
           <span></span><span></span><span></span>
         </button>
@@ -85,18 +85,18 @@
 
 <!-- Mobile Nav Drawer -->
 <div class="nav__mobile-menu" id="mobileMenu">
-  <div class="nav__mobile-section">Services</div>
-  <a href="services/city-to-city.html" class="nav__mobile-link">🛣 City-to-City Rides</a>
-  <a href="services/airport-transfer.html" class="nav__mobile-link">✈️ Airport Transfers</a>
-  <a href="services/hourly-hire.html" class="nav__mobile-link">⏱ Hourly Hire</a>
-  <a href="services/chauffeur.html" class="nav__mobile-link">🎩 Chauffeur Service</a>
-  <div class="nav__mobile-section">For Business</div>
-  <a href="#" class="nav__mobile-link">🚌 Official Group Vehicle</a>
-  <a href="#" class="nav__mobile-link">🏨 Travel Agencies</a>
-  <a href="help/index.html" class="nav__mobile-link">❓ Help Center</a>
+  <div class="nav__mobile-section" data-i18n="nav.m.services">Services</div>
+  <a href="services/city-to-city.html" class="nav__mobile-link" data-i18n="nav.m.city">🛣 City-to-City Rides</a>
+  <a href="services/airport-transfer.html" class="nav__mobile-link" data-i18n="nav.m.airport">✈️ Airport Transfers</a>
+  <a href="services/hourly-hire.html" class="nav__mobile-link" data-i18n="nav.m.hourly">⏱ Hourly Hire</a>
+  <a href="services/chauffeur.html" class="nav__mobile-link" data-i18n="nav.m.chauffeur">🎩 Chauffeur Service</a>
+  <div class="nav__mobile-section" data-i18n="nav.m.business">For Business</div>
+  <a href="#" class="nav__mobile-link" data-i18n="nav.m.group">🚌 Official Group Vehicle</a>
+  <a href="#" class="nav__mobile-link" data-i18n="nav.m.travel">🏨 Travel Agencies</a>
+  <a href="help/index.html" class="nav__mobile-link" data-i18n="nav.m.help">❓ Help Center</a>
   <div class="nav__mobile-actions">
-    <a href="#loginModal" class="btn btn--outline btn--full btn--round" onclick="closeMobileMenu();openModal('loginModal')">Sign In</a>
-    <a href="booking/select-class.html" class="btn btn--gold btn--full btn--round">Book a Ride</a>
+    <a href="#loginModal" class="btn btn--outline btn--full btn--round" onclick="closeMobileMenu();openModal('loginModal')" data-i18n="nav.m.signin">Sign In</a>
+    <a href="booking/select-class.html" class="btn btn--gold btn--full btn--round" data-i18n="nav.m.book">Book a Ride</a>
   </div>
 </div>
 
@@ -109,55 +109,55 @@
     <div class="hero__text">
       <div class="hero__badge">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        DX Premium Chauffeur
+        <span data-i18n="hero.badge">DX Premium Chauffeur</span>
       </div>
-      <h1 class="hero__title">Your <em>Premium</em><br/>Chauffeur,<br/>Wherever You Are</h1>
-      <p class="hero__subtitle">DX delivers professional chauffeurs, luxury vehicles, and seamless booking — airport transfers, city rides, and bespoke journeys.</p>
+      <h1 class="hero__title" data-i18n-html="hero.title">Your <em>Premium</em><br/>Chauffeur,<br/>Wherever You Are</h1>
+      <p class="hero__subtitle" data-i18n="hero.subtitle">DX delivers professional chauffeurs, luxury vehicles, and seamless booking — airport transfers, city rides, and bespoke journeys.</p>
     </div>
 
     <!-- Booking Box -->
     <div class="booking-box">
       <div class="booking-tabs" role="tablist">
-        <button class="booking-tab active" onclick="switchTab('oneway', this)" role="tab">One Way</button>
-        <button class="booking-tab" onclick="switchTab('hourly', this)" role="tab">By the Hour</button>
-        <button class="booking-tab" onclick="switchTab('daytour', this)" role="tab">Day Tour</button>
-        <button class="booking-tab" onclick="switchTab('airport', this)" role="tab">Airport Transfer</button>
+        <button class="booking-tab active" onclick="switchTab('oneway', this)" role="tab" data-i18n="tab.oneway">One Way</button>
+        <button class="booking-tab" onclick="switchTab('hourly', this)" role="tab" data-i18n="tab.hourly">By the Hour</button>
+        <button class="booking-tab" onclick="switchTab('daytour', this)" role="tab" data-i18n="tab.daytour">Day Tour</button>
+        <button class="booking-tab" onclick="switchTab('airport', this)" role="tab" data-i18n="tab.airport">Airport Transfer</button>
       </div>
 
       <!-- One Way -->
       <div class="booking-panel active" id="panel-oneway">
         <div class="booking-grid">
           <div class="form-group">
-            <label class="form-label">From</label>
+            <label class="form-label" data-i18n="ow.from">From</label>
             <div class="form-field-wrap">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
-              <input type="text" class="form-control form-control--icon" placeholder="Departure city or address" />
+              <input type="text" class="form-control form-control--icon" data-i18n-ph="ow.ph.from" placeholder="Departure city or address" />
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label">To</label>
+            <label class="form-label" data-i18n="ow.to">To</label>
             <div class="form-field-wrap">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              <input type="text" class="form-control form-control--icon" placeholder="Destination city or address" />
+              <input type="text" class="form-control form-control--icon" data-i18n-ph="ow.ph.to" placeholder="Destination city or address" />
             </div>
           </div>
         </div>
         <div class="booking-grid booking-grid--2" style="margin-bottom:0">
           <div class="form-group">
-            <label class="form-label">Date</label>
+            <label class="form-label" data-i18n="ow.date">Date</label>
             <input type="date" class="form-control" id="oneway-date" />
           </div>
           <div class="form-group">
-            <label class="form-label">Time</label>
+            <label class="form-label" data-i18n="ow.time">Time</label>
             <input type="time" class="form-control" id="oneway-time" />
           </div>
         </div>
         <div class="divider"></div>
         <div class="booking-footer">
-          <span class="booking-note">✓ Free cancellation 24h before pickup</span>
+          <span class="booking-note" data-i18n="ow.note">✓ Free cancellation 24h before pickup</span>
           <a href="booking/select-class.html" class="btn btn--gold btn--round">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            Search Vehicles
+            <span data-i18n="btn.search">Search Vehicles</span>
           </a>
         </div>
       </div>
@@ -166,43 +166,43 @@
       <div class="booking-panel" id="panel-hourly">
         <div class="booking-grid booking-grid--3">
           <div class="form-group">
-            <label class="form-label">Pickup Location</label>
+            <label class="form-label" data-i18n="hr.location">Pickup Location</label>
             <div class="form-field-wrap">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
-              <input type="text" class="form-control form-control--icon" placeholder="Starting address" />
+              <input type="text" class="form-control form-control--icon" data-i18n-ph="hr.ph.location" placeholder="Starting address" />
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label">Duration</label>
+            <label class="form-label" data-i18n="hr.duration">Duration</label>
             <select class="form-control">
-              <option value="">Select hours</option>
-              <option value="2">2 hours</option>
-              <option value="3">3 hours</option>
-              <option value="4">4 hours</option>
-              <option value="5">5 hours</option>
-              <option value="6">6 hours</option>
-              <option value="8">8 hours</option>
-              <option value="10">10 hours</option>
-              <option value="12">12 hours</option>
-              <option value="24">24 hours</option>
+              <option value="" data-i18n="hr.opt.placeholder">Select hours</option>
+              <option value="2" data-i18n="hr.opt.2">2 hours</option>
+              <option value="3" data-i18n="hr.opt.3">3 hours</option>
+              <option value="4" data-i18n="hr.opt.4">4 hours</option>
+              <option value="5" data-i18n="hr.opt.5">5 hours</option>
+              <option value="6" data-i18n="hr.opt.6">6 hours</option>
+              <option value="8" data-i18n="hr.opt.8">8 hours</option>
+              <option value="10" data-i18n="hr.opt.10">10 hours</option>
+              <option value="12" data-i18n="hr.opt.12">12 hours</option>
+              <option value="24" data-i18n="hr.opt.24">24 hours</option>
             </select>
           </div>
           <div class="form-group">
-            <label class="form-label">Date</label>
+            <label class="form-label" data-i18n="hr.date">Date</label>
             <input type="date" class="form-control" />
           </div>
         </div>
         <div class="booking-grid booking-grid--2" style="margin-bottom:0">
           <div class="form-group">
-            <label class="form-label">Start Time</label>
+            <label class="form-label" data-i18n="hr.time">Start Time</label>
             <input type="time" class="form-control" />
           </div>
           <div></div>
         </div>
         <div class="divider"></div>
         <div class="booking-footer">
-          <span class="booking-note">✓ Minimum 2 hours · 15 min free waiting per stop</span>
-          <a href="booking/select-class.html" class="btn btn--gold btn--round">Search Vehicles</a>
+          <span class="booking-note" data-i18n="hr.note">✓ Minimum 2 hours · 15 min free waiting per stop</span>
+          <a href="booking/select-class.html" class="btn btn--gold btn--round" data-i18n="btn.search">Search Vehicles</a>
         </div>
       </div>
 
@@ -210,14 +210,14 @@
       <div class="booking-panel" id="panel-daytour">
         <div class="booking-grid booking-grid--4">
           <div class="form-group">
-            <label class="form-label">Pickup Location</label>
+            <label class="form-label" data-i18n="dt.location">Pickup Location</label>
             <div class="form-field-wrap">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
-              <input type="text" class="form-control form-control--icon" placeholder="Starting address" />
+              <input type="text" class="form-control form-control--icon" data-i18n-ph="dt.ph.location" placeholder="Starting address" />
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label">Number of Days</label>
+            <label class="form-label" data-i18n="dt.days">Number of Days</label>
             <div class="stepper">
               <button class="stepper__btn" onclick="stepperChange('days', -1)">−</button>
               <span class="stepper__val" id="val-days">1</span>
@@ -225,18 +225,18 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label">Start Date</label>
+            <label class="form-label" data-i18n="dt.date">Start Date</label>
             <input type="date" class="form-control" />
           </div>
           <div class="form-group">
-            <label class="form-label">Daily Start Time</label>
+            <label class="form-label" data-i18n="dt.time">Daily Start Time</label>
             <input type="time" class="form-control" />
           </div>
         </div>
         <div class="divider"></div>
         <div class="booking-footer">
-          <span class="booking-note">✓ Up to 10h service per day · 15 min free waiting</span>
-          <a href="booking/select-class.html" class="btn btn--gold btn--round">Search Vehicles</a>
+          <span class="booking-note" data-i18n="dt.note">✓ Up to 10h service per day · 15 min free waiting</span>
+          <a href="booking/select-class.html" class="btn btn--gold btn--round" data-i18n="btn.search">Search Vehicles</a>
         </div>
       </div>
 
@@ -244,37 +244,37 @@
       <div class="booking-panel" id="panel-airport">
         <div class="booking-grid booking-grid--2">
           <div class="form-group">
-            <label class="form-label">Direction</label>
+            <label class="form-label" data-i18n="at.direction">Direction</label>
             <div class="radio-toggle">
               <input type="radio" name="direction" id="dir-pickup" value="pickup" checked />
-              <label for="dir-pickup">✈️ Pickup (from airport)</label>
+              <label for="dir-pickup" data-i18n="at.pickup">✈️ Pickup (from airport)</label>
               <input type="radio" name="direction" id="dir-dropoff" value="dropoff" />
-              <label for="dir-dropoff">🚗 Drop-off (to airport)</label>
+              <label for="dir-dropoff" data-i18n="at.dropoff">🚗 Drop-off (to airport)</label>
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label">Flight Number</label>
+            <label class="form-label" data-i18n="at.flight">Flight Number</label>
             <div class="form-field-wrap">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21 4 19.5 2.5S18 2 16.5 3.5L13 7 4.8 5.2l-1 .9L8 10l-3.5 1.5c-.5.2-.5.9 0 1.1l1 .5L6 15l2 2 1.5.5.5 1c.2.5.9.5 1.1 0L13 15l4.1 4.2z"/></svg>
-              <input type="text" class="form-control form-control--icon" id="flightNo" placeholder="e.g. MU5735" oninput="validateFlight(this)" />
+              <input type="text" class="form-control form-control--icon" id="flightNo" data-i18n-ph="at.ph.flight" placeholder="e.g. MU5735" oninput="validateFlight(this)" />
             </div>
             <span id="flightInfo" style="font-size:12px;color:var(--gold);display:none;margin-top:4px;"></span>
           </div>
         </div>
         <div class="booking-grid booking-grid--4">
           <div class="form-group">
-            <label class="form-label" id="destLabel">Your Destination</label>
+            <label class="form-label" id="destLabel" data-i18n="at.dest">Your Destination</label>
             <div class="form-field-wrap">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              <input type="text" class="form-control form-control--icon" placeholder="Hotel, address..." />
+              <input type="text" class="form-control form-control--icon" data-i18n-ph="at.ph.dest" placeholder="Hotel, address..." />
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label">Date</label>
+            <label class="form-label" data-i18n="at.date">Date</label>
             <input type="date" class="form-control" />
           </div>
           <div class="form-group">
-            <label class="form-label">Passengers</label>
+            <label class="form-label" data-i18n="at.pax">Passengers</label>
             <div class="stepper">
               <button class="stepper__btn" onclick="stepperChange('pax', -1)">−</button>
               <span class="stepper__val" id="val-pax">2</span>
@@ -282,7 +282,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label">Luggage</label>
+            <label class="form-label" data-i18n="at.lug">Luggage</label>
             <div class="stepper">
               <button class="stepper__btn" onclick="stepperChange('lug', -1)">−</button>
               <span class="stepper__val" id="val-lug">2</span>
@@ -292,8 +292,8 @@
         </div>
         <div class="divider"></div>
         <div class="booking-footer">
-          <span class="booking-note">✓ 60 min free waiting · Meet &amp; Greet included</span>
-          <a href="booking/select-class.html" class="btn btn--gold btn--round">Search Vehicles</a>
+          <span class="booking-note" data-i18n="at.note">✓ 60 min free waiting · Meet &amp; Greet included</span>
+          <a href="booking/select-class.html" class="btn btn--gold btn--round" data-i18n="btn.search">Search Vehicles</a>
         </div>
       </div>
     </div><!-- /booking-box -->
@@ -304,31 +304,31 @@
 <section class="section" style="background: var(--dark); border-top:1px solid var(--border)">
   <div class="container">
     <div class="section__head">
-      <div class="section__label">Why Choose Us</div>
-      <h2 class="section__title">The Standard for Premium Ground Transport</h2>
-      <p class="section__subtitle">Every ride is crafted around your comfort, time, and peace of mind.</p>
+      <div class="section__label" data-i18n="feat.label">Why Choose Us</div>
+      <h2 class="section__title" data-i18n="feat.title">The Standard for Premium Ground Transport</h2>
+      <p class="section__subtitle" data-i18n="feat.subtitle">Every ride is crafted around your comfort, time, and peace of mind.</p>
     </div>
     <div class="features-grid">
       <div class="feature-card">
         <div class="feature-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
         </div>
-        <h3 class="feature-title">Transparent Pricing</h3>
-        <p class="feature-desc">No surge pricing, no hidden fees. The price you see is the price you pay — guaranteed upfront before you book.</p>
+        <h3 class="feature-title" data-i18n="feat1.title">Transparent Pricing</h3>
+        <p class="feature-desc" data-i18n="feat1.desc">No surge pricing, no hidden fees. The price you see is the price you pay — guaranteed upfront before you book.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21 4 19.5 2.5S18 2 16.5 3.5L13 7 4.8 5.2l-1 .9L8 10l-3.5 1.5c-.5.2-.5.9 0 1.1l1 .5L6 15l2 2 1.5.5.5 1c.2.5.9.5 1.1 0L13 15l4.1 4.2z"/></svg>
         </div>
-        <h3 class="feature-title">Seamless Airport Experience</h3>
-        <p class="feature-desc">Flight tracking included. 60 minutes free waiting time. Professional meet &amp; greet with name sign at arrivals.</p>
+        <h3 class="feature-title" data-i18n="feat2.title">Seamless Airport Experience</h3>
+        <p class="feature-desc" data-i18n="feat2.desc">Flight tracking included. 60 minutes free waiting time. Professional meet &amp; greet with name sign at arrivals.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
-        <h3 class="feature-title">Flexible On Your Terms</h3>
-        <p class="feature-desc">Book one-way, hourly, multi-day or airport transfers. Free cancellation up to 24 hours before your ride.</p>
+        <h3 class="feature-title" data-i18n="feat3.title">Flexible On Your Terms</h3>
+        <p class="feature-desc" data-i18n="feat3.desc">Book one-way, hourly, multi-day or airport transfers. Free cancellation up to 24 hours before your ride.</p>
       </div>
     </div>
   </div>
@@ -338,72 +338,72 @@
 <section class="section" id="fleet">
   <div class="container">
     <div class="section__head">
-      <div class="section__label">Our Fleet</div>
-      <h2 class="section__title">Premium Vehicles for Every Journey</h2>
-      <p class="section__subtitle">All vehicles are professionally maintained, fully insured, and driven by vetted chauffeurs.</p>
+      <div class="section__label" data-i18n="fleet.label">Our Fleet</div>
+      <h2 class="section__title" data-i18n="fleet.title">Premium Vehicles for Every Journey</h2>
+      <p class="section__subtitle" data-i18n="fleet.subtitle">All vehicles are professionally maintained, fully insured, and driven by vetted chauffeurs.</p>
     </div>
     <div class="fleet-grid">
       <a href="booking/select-class.html" class="fleet-card">
         <div class="fleet-card__image">
           <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&q=80&auto=format" alt="Business Van / SUV" loading="lazy" />
-          <span class="fleet-card__badge">Most Popular</span>
+          <span class="fleet-card__badge" data-i18n="van.badge">Most Popular</span>
         </div>
         <div class="fleet-card__body">
-          <h3 class="fleet-card__name">Business Van / SUV</h3>
-          <p class="fleet-card__models">Mercedes V-Class · Toyota Alphard</p>
+          <h3 class="fleet-card__name" data-i18n="van.name">Business Van / SUV</h3>
+          <p class="fleet-card__models" data-i18n="van.models">Mercedes V-Class · Toyota Alphard</p>
           <div class="fleet-card__stats">
             <div class="fleet-stat">
               <span class="fleet-stat__val">6</span>
-              <span class="fleet-stat__key">Passengers</span>
+              <span class="fleet-stat__key" data-i18n="van.pax.key">Passengers</span>
             </div>
             <div class="fleet-stat">
               <span class="fleet-stat__val">✓</span>
-              <span class="fleet-stat__key">WiFi</span>
+              <span class="fleet-stat__key" data-i18n="stat.wifi">WiFi</span>
             </div>
             <div class="fleet-stat">
               <span class="fleet-stat__val">✓</span>
-              <span class="fleet-stat__key">Large Trunk</span>
+              <span class="fleet-stat__key" data-i18n="van.trunk">Large Trunk</span>
             </div>
             <div class="fleet-stat">
-              <span class="fleet-stat__val">All</span>
-              <span class="fleet-stat__key">Trip Types</span>
+              <span class="fleet-stat__val" data-i18n="stat.all">All</span>
+              <span class="fleet-stat__key" data-i18n="stat.trips">Trip Types</span>
             </div>
           </div>
           <div class="fleet-card__footer">
-            <div class="fleet-card__price">From <strong>$95</strong>/ride</div>
-            <span class="btn btn--gold btn--sm btn--round">Select →</span>
+            <div class="fleet-card__price" data-i18n-html="van.price">From <strong>$95</strong>/ride</div>
+            <span class="btn btn--gold btn--sm btn--round" data-i18n="btn.select">Select →</span>
           </div>
         </div>
       </a>
       <a href="booking/select-class.html" class="fleet-card">
         <div class="fleet-card__image">
           <img src="https://images.unsplash.com/photo-1562159074-d31a4f78fce7?w=800&q=80&auto=format" alt="Business Coach" loading="lazy" />
-          <span class="fleet-card__badge">Group Travel</span>
+          <span class="fleet-card__badge" data-i18n="coach.badge">Group Travel</span>
         </div>
         <div class="fleet-card__body">
-          <h3 class="fleet-card__name">Business Coach</h3>
-          <p class="fleet-card__models">Toyota Hiace · Mercedes Sprinter</p>
+          <h3 class="fleet-card__name" data-i18n="coach.name">Business Coach</h3>
+          <p class="fleet-card__models" data-i18n="coach.models">Toyota Hiace · Mercedes Sprinter</p>
           <div class="fleet-card__stats">
             <div class="fleet-stat">
               <span class="fleet-stat__val">14</span>
-              <span class="fleet-stat__key">Passengers</span>
+              <span class="fleet-stat__key" data-i18n="coach.pax.key">Passengers</span>
             </div>
             <div class="fleet-stat">
               <span class="fleet-stat__val">✓</span>
-              <span class="fleet-stat__key">WiFi</span>
+              <span class="fleet-stat__key" data-i18n="stat.wifi">WiFi</span>
             </div>
             <div class="fleet-stat">
               <span class="fleet-stat__val">✓</span>
-              <span class="fleet-stat__key">Luggage Hold</span>
+              <span class="fleet-stat__key" data-i18n="coach.lug">Luggage Hold</span>
             </div>
             <div class="fleet-stat">
-              <span class="fleet-stat__val">All</span>
-              <span class="fleet-stat__key">Trip Types</span>
+              <span class="fleet-stat__val" data-i18n="stat.all">All</span>
+              <span class="fleet-stat__key" data-i18n="stat.trips">Trip Types</span>
             </div>
           </div>
           <div class="fleet-card__footer">
-            <div class="fleet-card__price">From <strong>$145</strong>/ride</div>
-            <span class="btn btn--gold btn--sm btn--round">Select →</span>
+            <div class="fleet-card__price" data-i18n-html="coach.price">From <strong>$145</strong>/ride</div>
+            <span class="btn btn--gold btn--sm btn--round" data-i18n="btn.select">Select →</span>
           </div>
         </div>
       </a>
@@ -415,29 +415,29 @@
 <section class="section" style="background: var(--dark); border-top:1px solid var(--border); border-bottom:1px solid var(--border)">
   <div class="container">
     <div class="section__head">
-      <div class="section__label">How It Works</div>
-      <h2 class="section__title">Booked in Under 2 Minutes</h2>
+      <div class="section__label" data-i18n="hiw.label">How It Works</div>
+      <h2 class="section__title" data-i18n="hiw.title">Booked in Under 2 Minutes</h2>
     </div>
     <div class="steps-grid">
       <div class="step">
         <div class="step__num">1</div>
-        <h4 class="step__title">Enter Your Trip</h4>
-        <p class="step__desc">Choose your trip type, locations, date and time with our smart booking form.</p>
+        <h4 class="step__title" data-i18n="step1.title">Enter Your Trip</h4>
+        <p class="step__desc" data-i18n="step1.desc">Choose your trip type, locations, date and time with our smart booking form.</p>
       </div>
       <div class="step">
         <div class="step__num">2</div>
-        <h4 class="step__title">Select Your Vehicle</h4>
-        <p class="step__desc">Browse available vehicles with upfront pricing — no surprises.</p>
+        <h4 class="step__title" data-i18n="step2.title">Select Your Vehicle</h4>
+        <p class="step__desc" data-i18n="step2.desc">Browse available vehicles with upfront pricing — no surprises.</p>
       </div>
       <div class="step">
         <div class="step__num">3</div>
-        <h4 class="step__title">Confirm & Pay</h4>
-        <p class="step__desc">Secure payment via credit card or PayPal. Pre-authorized until ride completion.</p>
+        <h4 class="step__title" data-i18n="step3.title">Confirm &amp; Pay</h4>
+        <p class="step__desc" data-i18n="step3.desc">Secure payment via credit card or PayPal. Pre-authorized until ride completion.</p>
       </div>
       <div class="step">
         <div class="step__num">4</div>
-        <h4 class="step__title">Enjoy Your Ride</h4>
-        <p class="step__desc">Your chauffeur details are sent 2 hours before. Track in real-time.</p>
+        <h4 class="step__title" data-i18n="step4.title">Enjoy Your Ride</h4>
+        <p class="step__desc" data-i18n="step4.desc">Your chauffeur details are sent 2 hours before. Track in real-time.</p>
       </div>
     </div>
   </div>
@@ -452,7 +452,7 @@
           <img src="images/logo.svg" alt="DX" style="height:38px;width:auto" onerror="this.src='images/logo.svg';this.onerror=function(){this.style.display='none';this.nextElementSibling.style.display='block'}" />
           <span class="dx-logo__text" style="font-size:30px;display:none">DX</span>
         </a>
-        <p class="footer__tagline">DX delivers premium chauffeur service for business and leisure travellers worldwide. Professional, discreet, always on time.</p>
+        <p class="footer__tagline" data-i18n="footer.tagline">DX delivers premium chauffeur service for business and leisure travellers worldwide. Professional, discreet, always on time.</p>
         <div class="footer__socials">
           <a href="#" class="footer__social" title="Instagram">IG</a>
           <a href="#" class="footer__social" title="LinkedIn">in</a>
@@ -461,34 +461,34 @@
         </div>
       </div>
       <div>
-        <div class="footer__col-title">Services</div>
-        <a href="services/city-to-city.html" class="footer__link">City-to-City Rides</a>
-        <a href="services/airport-transfer.html" class="footer__link">Airport Transfers</a>
-        <a href="services/hourly-hire.html" class="footer__link">Hourly Hire</a>
-        <a href="services/chauffeur.html" class="footer__link">Chauffeur Service</a>
+        <div class="footer__col-title" data-i18n="footer.col.services">Services</div>
+        <a href="services/city-to-city.html" class="footer__link" data-i18n="footer.city">City-to-City Rides</a>
+        <a href="services/airport-transfer.html" class="footer__link" data-i18n="footer.airport">Airport Transfers</a>
+        <a href="services/hourly-hire.html" class="footer__link" data-i18n="footer.hourly">Hourly Hire</a>
+        <a href="services/chauffeur.html" class="footer__link" data-i18n="footer.chauffeur">Chauffeur Service</a>
       </div>
       <div>
-        <div class="footer__col-title">Company</div>
-        <a href="#" class="footer__link">About Us</a>
-        <a href="#" class="footer__link">For Business</a>
-        <a href="#" class="footer__link">Become a Driver</a>
-        <a href="#" class="footer__link">Careers</a>
-        <a href="help/index.html" class="footer__link">Help Center</a>
+        <div class="footer__col-title" data-i18n="footer.col.company">Company</div>
+        <a href="#" class="footer__link" data-i18n="footer.about">About Us</a>
+        <a href="#" class="footer__link" data-i18n="footer.business">For Business</a>
+        <a href="#" class="footer__link" data-i18n="footer.driver">Become a Driver</a>
+        <a href="#" class="footer__link" data-i18n="footer.careers">Careers</a>
+        <a href="help/index.html" class="footer__link" data-i18n="footer.help">Help Center</a>
       </div>
       <div>
-        <div class="footer__col-title">Support</div>
-        <a href="#" class="footer__link">Contact Us</a>
-        <a href="#" class="footer__link">Cancellation Policy</a>
-        <a href="#" class="footer__link">Pricing & Fees</a>
-        <a href="#" class="footer__link">Safety</a>
+        <div class="footer__col-title" data-i18n="footer.col.support">Support</div>
+        <a href="#" class="footer__link" data-i18n="footer.contact">Contact Us</a>
+        <a href="#" class="footer__link" data-i18n="footer.cancel">Cancellation Policy</a>
+        <a href="#" class="footer__link" data-i18n="footer.pricing">Pricing &amp; Fees</a>
+        <a href="#" class="footer__link" data-i18n="footer.safety">Safety</a>
       </div>
     </div>
     <div class="footer__bottom">
-      <p class="footer__copy">© 2026 DX Premium Chauffeur. All rights reserved.</p>
+      <p class="footer__copy" data-i18n="footer.copy">© 2026 DX Premium Chauffeur. All rights reserved.</p>
       <div class="footer__legal">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Cookie Policy</a>
+        <a href="#" data-i18n="footer.privacy">Privacy Policy</a>
+        <a href="#" data-i18n="footer.terms">Terms of Service</a>
+        <a href="#" data-i18n="footer.cookies">Cookie Policy</a>
       </div>
     </div>
   </div>
@@ -498,27 +498,27 @@
 <div class="modal-overlay" id="loginModal">
   <div class="modal">
     <div class="modal__header">
-      <h2 class="modal__title">Sign In</h2>
+      <h2 class="modal__title" data-i18n="login.title">Sign In</h2>
       <button class="modal__close" onclick="closeModal('loginModal')">✕</button>
     </div>
     <div class="form-group" style="margin-bottom:16px">
-      <label class="form-label">Email Address</label>
-      <input type="email" class="form-control" placeholder="you@example.com" />
+      <label class="form-label" data-i18n="login.email.label">Email Address</label>
+      <input type="email" class="form-control" data-i18n-ph="login.ph.email" placeholder="you@example.com" />
     </div>
     <div class="form-group" style="margin-bottom:24px">
-      <label class="form-label">Password</label>
-      <input type="password" class="form-control" placeholder="••••••••" />
+      <label class="form-label" data-i18n="login.pw.label">Password</label>
+      <input type="password" class="form-control" data-i18n-ph="login.ph.pw" placeholder="••••••••" />
     </div>
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
       <label style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--gray-400);cursor:pointer">
-        <input type="checkbox" /> Remember me
+        <input type="checkbox" /> <span data-i18n="login.remember">Remember me</span>
       </label>
-      <a href="#" style="font-size:13px;color:var(--gold)">Forgot password?</a>
+      <a href="#" style="font-size:13px;color:var(--gold)" data-i18n="login.forgot">Forgot password?</a>
     </div>
-    <button class="btn btn--gold btn--full" onclick="closeModal('loginModal');showToast('Welcome back! ✓')">Sign In</button>
+    <button class="btn btn--gold btn--full" onclick="closeModal('loginModal');showToast('Welcome back! ✓')" data-i18n="login.submit">Sign In</button>
     <div class="divider"></div>
     <p style="text-align:center;font-size:14px;color:var(--gray-500)">
-      Don't have an account? <a href="#" style="color:var(--gold)">Create one →</a>
+      <span data-i18n="login.noaccount">Don't have an account?</span> <a href="#" style="color:var(--gold)" data-i18n="login.create">Create one →</a>
     </p>
   </div>
 </div>
@@ -527,6 +527,7 @@
 <div class="toast" id="toast"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
+<script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

@@ -62,7 +62,12 @@ document.querySelectorAll('input[name="direction"]').forEach(radio => {
   radio.addEventListener('change', () => {
     const label = document.getElementById('destLabel');
     if (!label) return;
-    label.textContent = radio.value === 'pickup' ? 'Your Destination' : 'Your Departure Point';
+    const key = radio.value === 'pickup' ? 'at.dest' : 'at.orig';
+    label.setAttribute('data-i18n', key);
+    const lang = localStorage.getItem('preferred_language') === 'zh' ? 'zh' : 'en';
+    if (typeof i18n !== 'undefined' && i18n[lang] && i18n[lang][key]) {
+      label.textContent = i18n[lang][key];
+    }
   });
 });
 
@@ -139,16 +144,18 @@ document.addEventListener('keydown', e => {
 });
 
 /* ===== Language toggle ===== */
+function updateLangLabel() {
+  const label = document.getElementById('langLabel');
+  if (label) label.textContent = (localStorage.getItem('preferred_language') || 'en') === 'zh' ? '中文' : 'EN';
+}
+updateLangLabel();
 const langToggle = document.getElementById('langToggle');
-const langLabel  = document.getElementById('langLabel');
-let currentLang = localStorage.getItem('preferred_language') || 'en';
-if (langLabel) langLabel.textContent = currentLang === 'zh-CN' ? '中文' : 'EN';
 if (langToggle) {
   langToggle.addEventListener('click', () => {
-    currentLang = currentLang === 'en' ? 'zh-CN' : 'en';
-    localStorage.setItem('preferred_language', currentLang);
-    if (langLabel) langLabel.textContent = currentLang === 'zh-CN' ? '中文' : 'EN';
-    showToast(currentLang === 'zh-CN' ? '已切换至中文 (静态演示)' : 'Switched to English (static demo)');
+    const next = (localStorage.getItem('preferred_language') || 'en') === 'zh' ? 'en' : 'zh';
+    if (typeof applyLang === 'function') applyLang(next);
+    updateLangLabel();
+    showToast(next === 'zh' ? '已切换至中文' : 'Switched to English');
   });
 }
 
