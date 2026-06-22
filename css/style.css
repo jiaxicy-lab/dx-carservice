@@ -1240,6 +1240,26 @@ span.flatpickr-weekday { background: var(--dark) !important; color: var(--gray-5
   flex-direction: column;
   gap: 10px;
 }
+.nav__mobile-lang {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  background: transparent;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  color: var(--gray-400);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: .05em;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.nav__mobile-lang:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+}
 
 /* ===== Responsive — 1024px ===== */
 @media (max-width: 1024px) {

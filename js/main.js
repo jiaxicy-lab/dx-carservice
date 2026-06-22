@@ -145,8 +145,11 @@ document.addEventListener('keydown', e => {
 
 /* ===== Language toggle ===== */
 function updateLangLabel() {
+  const text = (localStorage.getItem('preferred_language') || 'en') === 'zh' ? '中文' : 'EN';
   const label = document.getElementById('langLabel');
-  if (label) label.textContent = (localStorage.getItem('preferred_language') || 'en') === 'zh' ? '中文' : 'EN';
+  if (label) label.textContent = text;
+  const labelMobile = document.getElementById('langLabelMobile');
+  if (labelMobile) labelMobile.textContent = text;
 }
 updateLangLabel();
 const langToggle = document.getElementById('langToggle');
