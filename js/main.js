@@ -85,12 +85,9 @@ function validateFlight(input) {
   }
 }
 
-/* ===== Set date minimums ===== */
+/* ===== Date & Time defaults ===== */
 (function () {
-  const today = new Date().toISOString().split('T')[0];
-  document.querySelectorAll('input[type="date"]').forEach(el => {
-    el.min = today;
-  });
+  // Default time = now + 1h rounded to 5 min
   const now = new Date();
   now.setHours(now.getHours() + 1);
   const hh = String(now.getHours()).padStart(2, '0');
@@ -98,6 +95,21 @@ function validateFlight(input) {
   document.querySelectorAll('input[type="time"]').forEach(el => {
     el.value = `${hh}:${mm}`;
   });
+
+  // Date pickers via flatpickr (consistent English UI on all locales/devices)
+  if (typeof flatpickr === 'function') {
+    document.querySelectorAll('input[type="date"]').forEach(el => {
+      flatpickr(el, {
+        dateFormat: 'M j, Y',
+        minDate: 'today',
+        disableMobile: true,
+      });
+    });
+  } else {
+    // Fallback: just set min attribute
+    const today = new Date().toISOString().split('T')[0];
+    document.querySelectorAll('input[type="date"]').forEach(el => { el.min = today; });
+  }
 })();
 
 /* ===== Modal ===== */

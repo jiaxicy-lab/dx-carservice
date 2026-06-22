@@ -1124,6 +1124,33 @@ h1,h2,h3 { font-family: var(--font-serif); font-weight: 700; line-height: 1.2; }
   font-weight: 500;
 }
 
+/* ===== Flatpickr theme overrides ===== */
+.flatpickr-calendar {
+  background: var(--card) !important;
+  border: 1px solid var(--border-light) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+.flatpickr-months .flatpickr-month { background: var(--dark) !important; }
+.flatpickr-current-month .flatpickr-monthDropdown-months { background: var(--dark) !important; }
+.flatpickr-weekdays,
+span.flatpickr-weekday { background: var(--dark) !important; color: var(--gray-500) !important; }
+.flatpickr-day.selected,
+.flatpickr-day.selected:hover,
+.flatpickr-day.selected:focus {
+  background: var(--gold) !important;
+  border-color: var(--gold) !important;
+  color: var(--black) !important;
+}
+.flatpickr-day:hover { background: var(--gold-muted) !important; border-color: transparent !important; }
+.flatpickr-day.today { border-color: var(--gold) !important; }
+.flatpickr-day.today:hover { background: var(--gold-muted) !important; }
+.flatpickr-day.flatpickr-disabled,
+.flatpickr-day.flatpickr-disabled:hover { color: var(--gray-600) !important; }
+.numInputWrapper:hover { background: var(--border) !important; }
+.flatpickr-input.active,
+.flatpickr-input:focus { border-color: var(--gold) !important; box-shadow: var(--shadow-gold) !important; }
+
 /* ===== Help Page ===== */
 .help-categories {
   display: grid;
