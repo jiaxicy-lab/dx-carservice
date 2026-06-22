@@ -74,10 +74,30 @@
         </button>
         <a href="#loginModal" class="btn btn--outline btn--sm btn--round" onclick="openModal('loginModal')">Sign In</a>
         <a href="booking/select-class.html" class="btn btn--gold btn--sm btn--round">Book a Ride</a>
+        <button class="nav__hamburger" id="navHamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </div>
 </nav>
+
+<!-- Mobile Nav Drawer -->
+<div class="nav__mobile-menu" id="mobileMenu">
+  <div class="nav__mobile-section">Services</div>
+  <a href="services/city-to-city.html" class="nav__mobile-link">🛣 City-to-City Rides</a>
+  <a href="services/airport-transfer.html" class="nav__mobile-link">✈️ Airport Transfers</a>
+  <a href="services/hourly-hire.html" class="nav__mobile-link">⏱ Hourly Hire</a>
+  <a href="services/chauffeur.html" class="nav__mobile-link">🎩 Chauffeur Service</a>
+  <div class="nav__mobile-section">For Business</div>
+  <a href="#" class="nav__mobile-link">🚌 Official Group Vehicle</a>
+  <a href="#" class="nav__mobile-link">🏨 Travel Agencies</a>
+  <a href="help/index.html" class="nav__mobile-link">❓ Help Center</a>
+  <div class="nav__mobile-actions">
+    <a href="#loginModal" class="btn btn--outline btn--full btn--round" onclick="closeMobileMenu();openModal('loginModal')">Sign In</a>
+    <a href="booking/select-class.html" class="btn btn--gold btn--full btn--round">Book a Ride</a>
+  </div>
+</div>
 
 <!-- ===== Hero ===== -->
 <section class="hero" id="hero">
@@ -105,7 +125,7 @@
 
       <!-- One Way -->
       <div class="booking-panel active" id="panel-oneway">
-        <div class="booking-grid" style="grid-template-columns:1fr 1fr">
+        <div class="booking-grid">
           <div class="form-group">
             <label class="form-label">From</label>
             <div class="form-field-wrap">
@@ -121,7 +141,7 @@
             </div>
           </div>
         </div>
-        <div class="booking-grid" style="grid-template-columns:1fr 1fr;margin-bottom:0">
+        <div class="booking-grid booking-grid--2" style="margin-bottom:0">
           <div class="form-group">
             <label class="form-label">Date</label>
             <input type="date" class="form-control" id="oneway-date" />
@@ -143,7 +163,7 @@
 
       <!-- By the Hour -->
       <div class="booking-panel" id="panel-hourly">
-        <div class="booking-grid" style="grid-template-columns:1fr 1fr 1fr">
+        <div class="booking-grid booking-grid--3">
           <div class="form-group">
             <label class="form-label">Pickup Location</label>
             <div class="form-field-wrap">
@@ -171,7 +191,7 @@
             <input type="date" class="form-control" />
           </div>
         </div>
-        <div class="booking-grid" style="grid-template-columns:1fr 3fr;margin-bottom:0">
+        <div class="booking-grid booking-grid--2" style="margin-bottom:0">
           <div class="form-group">
             <label class="form-label">Start Time</label>
             <input type="time" class="form-control" />
@@ -187,7 +207,7 @@
 
       <!-- Day Tour -->
       <div class="booking-panel" id="panel-daytour">
-        <div class="booking-grid" style="grid-template-columns:1fr 1fr 1fr 1fr">
+        <div class="booking-grid booking-grid--4">
           <div class="form-group">
             <label class="form-label">Pickup Location</label>
             <div class="form-field-wrap">
@@ -221,7 +241,7 @@
 
       <!-- Airport Transfer -->
       <div class="booking-panel" id="panel-airport">
-        <div class="booking-grid" style="grid-template-columns:1fr 1fr">
+        <div class="booking-grid booking-grid--2">
           <div class="form-group">
             <label class="form-label">Direction</label>
             <div class="radio-toggle">
@@ -240,7 +260,7 @@
             <span id="flightInfo" style="font-size:12px;color:var(--gold);display:none;margin-top:4px;"></span>
           </div>
         </div>
-        <div class="booking-grid" style="grid-template-columns:1fr 1fr 1fr 1fr">
+        <div class="booking-grid booking-grid--4">
           <div class="form-group">
             <label class="form-label" id="destLabel">Your Destination</label>
             <div class="form-field-wrap">

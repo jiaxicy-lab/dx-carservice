@@ -1,3 +1,24 @@
+/* ===== Mobile hamburger menu ===== */
+function toggleMobileMenu() {
+  const btn = document.getElementById('navHamburger');
+  const menu = document.getElementById('mobileMenu');
+  if (!btn || !menu) return;
+  const isOpen = menu.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+}
+function closeMobileMenu() {
+  const btn = document.getElementById('navHamburger');
+  const menu = document.getElementById('mobileMenu');
+  if (btn) btn.classList.remove('open');
+  if (menu) menu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+// Close drawer when clicking a link inside it
+document.querySelectorAll('.nav__mobile-link').forEach(link => {
+  link.addEventListener('click', closeMobileMenu);
+});
+
 /* ===== Navigation scroll effect ===== */
 (function () {
   const nav = document.getElementById('mainNav');

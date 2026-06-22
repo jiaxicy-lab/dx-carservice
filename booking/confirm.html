@@ -33,7 +33,7 @@
 
 <main style="padding:48px 0 96px">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 360px;gap:32px;align-items:start">
+    <div class="booking-flow-layout">
 
       <!-- Left: Contact & Options -->
       <div>
@@ -43,7 +43,7 @@
         <!-- Contact Info -->
         <div class="payment-card" style="margin-bottom:24px">
           <h3 class="payment-card__title">Contact Information</h3>
-          <div class="booking-grid" style="grid-template-columns:1fr 1fr;margin-bottom:16px">
+          <div class="booking-grid booking-grid--2" style="margin-bottom:16px">
             <div class="form-group">
               <label class="form-label">First Name</label>
               <input type="text" class="form-control" placeholder="John" />
@@ -132,7 +132,7 @@
       </div>
 
       <!-- Right: Summary -->
-      <div style="position:sticky;top:calc(var(--nav-h) + 24px)">
+      <div style="position:sticky;top:calc(var(--nav-h) + 24px)" class="booking-flow-sidebar">
         <div class="trip-summary" style="margin-bottom:16px">
           <div class="trip-summary__title">Trip Summary</div>
           <div class="trip-summary__row">
