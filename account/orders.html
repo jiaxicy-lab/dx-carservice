@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Orders — DX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+<nav class="nav" id="mainNav">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo dx-logo">
+        <img src="../images/logo.svg" alt="DX" class="dx-logo__img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="dx-logo__text" style="display:none">DX</span>
+      </a>
+      <div class="nav__right" style="margin-left:auto">
+        <a href="../index.html" class="btn btn--outline btn--sm btn--round">← Home</a>
+        <a href="../booking/select-class.html" class="btn btn--gold btn--sm btn--round">Book New Ride</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main style="padding:calc(var(--nav-h) + 48px) 0 96px">
+  <div class="container">
+    <div class="account-layout">
+
+      <!-- Sidebar -->
+      <aside class="account-sidebar">
+        <a href="orders.html" class="account-nav-item active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          My Orders
+        </a>
+        <a href="profile.html" class="account-nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Profile
+        </a>
+        <a href="payment-methods.html" class="account-nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          Payment Methods
+        </a>
+        <div class="divider" style="margin:8px 0"></div>
+        <a href="#" class="account-nav-item" style="color:var(--danger)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Sign Out
+        </a>
+      </aside>
+
+      <!-- Main content -->
+      <div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;gap:16px;flex-wrap:wrap">
+          <div>
+            <h1 style="font-size:26px;margin-bottom:4px">My Orders</h1>
+            <p style="color:var(--gray-500);font-size:14px">Hello, John Smith · 4 total bookings</p>
+          </div>
+          <a href="../index.html" class="btn btn--gold btn--sm btn--round">+ Book New Ride</a>
+        </div>
+
+        <!-- Filter tabs -->
+        <div class="filter-tabs">
+          <button class="filter-tab active">All (4)</button>
+          <button class="filter-tab">Pending (1)</button>
+          <button class="filter-tab">Confirmed (1)</button>
+          <button class="filter-tab">Completed (1)</button>
+          <button class="filter-tab">Cancelled (1)</button>
+        </div>
+
+        <!-- Order 1: Confirmed (upcoming) -->
+        <div class="order-card">
+          <div class="order-card__header">
+            <div>
+              <div class="order-card__id">#DX-2026-048291</div>
+              <div class="order-card__route">Shanghai Pudong Intl Airport → The Ritz-Carlton Pudong</div>
+              <div class="order-card__meta">Airport Transfer · Business Van/SUV · Jun 12, 2026 14:35</div>
+            </div>
+            <span class="status-badge status-badge--confirmed">Confirmed</span>
+          </div>
+          <div class="order-card__body">
+            <div class="order-detail">
+              <span class="order-detail__label">Flight</span>
+              <span class="order-detail__val">MU5735 · China Eastern</span>
+            </div>
+            <div class="order-detail">
+              <span class="order-detail__label">Passengers</span>
+              <span class="order-detail__val">2 pax · 2 bags</span>
+            </div>
+            <div class="order-detail">
+              <span class="order-detail__label">Total</span>
+              <span class="order-detail__val" style="color:var(--gold)">$125.00 USD</span>
+            </div>
+            <div class="order-detail">
+              <span class="order-detail__label">Driver</span>
+              <span class="order-detail__val" style="color:var(--gray-500)">Assigned 2h before pickup</span>
+            </div>
+          </div>
+          <div class="order-card__actions">
+            <button class="btn btn--ghost btn--sm">View Details</button>
+            <button class="btn btn--outline btn--sm" onclick="openModal('modifyModal')">Modify</button>
+            <button class="btn btn--sm" style="background:rgba(239,68,68,.1);color:var(--danger);border:1px solid rgba(239,68,68,.2)" onclick="openModal('cancelModal')">Cancel</button>
+          </div>
+        </div>
+
+        <!-- Order 2: Pending -->
+        <div class="order-card">
+          <div class="order-card__header">
+            <div>
+              <div class="order-card__id">#DX-2026-047018</div>
+              <div class="order-card__route">Beijing Capital Airport → Raffles Hotel Beijing</div>
+              <div class="order-card__meta">Airport Transfer · Business Coach · Jun 5, 2026 09:00</div>
+            </div>
+            <span class="status-badge status-badge--pending">Pending</span>
+          </div>
+          <div class="order-card__body">
+            <div class="order-detail">
+              <span class="order-detail__label">Flight</span>
+              <span class="order-detail__val">CA1234 · Air China</span>
+            </div>
+            <div class="order-detail">
+              <span class="order-detail__label">Passengers</span>
+              <span class="order-detail__val">8 pax · 10 bags</span>
+            </div>
+            <div class="order-detail">
+              <span class="order-detail__label">Total</span>
+              <span class="order-detail__val" style="color:var(--gold)">$195.00 USD</span>
+            </div>
+          </div>
+          <div class="order-card__actions">
+            <button class="btn btn--ghost btn--sm">View Details</button>
+            <button class="btn btn--sm" style="background:rgba(239,68,68,.1);color:var(--danger);border:1px solid rgba(239,68,68,.2)" onclick="openModal('cancelModal')">Cancel</button>
+          </div>
+        </div>
+
+        <!-- Order 3: Completed -->
+        <div class="order-card">
+          <div class="order-card__header">
+            <div>
+              <div class="order-card__id">#DX-2026-039284</div>
+              <div class="order-card__route">Shenzhen → Guangzhou Baiyun Airport</div>
+              <div class="order-card__meta">One Way · Business Van/SUV · May 18, 2026 06:30</div>
+            </div>
+            <span class="status-badge status-badge--completed">Completed</span>
+          </div>
+          <div class="order-card__body">
+            <div class="order-detail">
+              <span class="order-detail__label">Duration</span>
+              <span class="order-detail__val">1h 42min</span>
+            </div>
+            <div class="order-detail">
+              <span class="order-detail__label">Passengers</span>
+              <span class="order-detail__val">1 pax · 2 bags</span>
+            </div>
+            <div class="order-detail">
+              <span class="order-detail__label">Total Charged</span>
+              <span class="order-detail__val" style="color:var(--gold)">$95.00 USD</span>
+            </div>
+            <div class="order-detail">
+              <span class="order-detail__label">Driver</span>
+              <span class="order-detail__val">Wang Lei · ★★★★★</span>
+            </div>
+          </div>
+          <div class="order-card__actions">
+            <button class="btn btn--ghost btn--sm">View Receipt</button>
+            <button class="btn btn--gold btn--sm">Re-book</button>
+          </div>
+        </div>
+
+        <!-- Order 4: Cancelled -->
+        <div class="order-card" style="opacity:.7">
+          <div class="order-card__header">
+            <div>
+              <div class="order-card__id">#DX-2026-031047</div>
+              <div class="order-card__route">Hong Kong Airport → Grand Hyatt Hong Kong</div>
+              <div class="order-card__meta">Airport Transfer · Business Van/SUV · Apr 30, 2026 16:00</div>
+            </div>
+            <span class="status-badge status-badge--cancelled">Cancelled</span>
+          </div>
+          <div class="order-card__body">
+            <div class="order-detail">
+              <span class="order-detail__label">Refund</span>
+              <span class="order-detail__val" style="color:var(--success)">$125.00 USD (full)</span>
+            </div>
+            <div class="order-detail">
+              <span class="order-detail__label">Cancelled</span>
+              <span class="order-detail__val">Apr 28, 2026 · 36h before pickup</span>
+            </div>
+          </div>
+          <div class="order-card__actions">
+            <button class="btn btn--ghost btn--sm">View Details</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Modify Modal -->
+<div class="modal-overlay" id="modifyModal">
+  <div class="modal">
+    <div class="modal__header">
+      <h2 class="modal__title">Modify Booking</h2>
+      <button class="modal__close" onclick="closeModal('modifyModal')">✕</button>
+    </div>
+    <p style="font-size:14px;color:var(--gray-400);margin-bottom:20px">You can modify date, time, and destination only (vehicle type and booking type cannot be changed).</p>
+    <div class="booking-grid" style="grid-template-columns:1fr 1fr;margin-bottom:16px">
+      <div class="form-group">
+        <label class="form-label">New Date</label>
+        <input type="date" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">New Time</label>
+        <input type="time" class="form-control" />
+      </div>
+    </div>
+    <div class="form-group" style="margin-bottom:24px">
+      <label class="form-label">New Destination (optional)</label>
+      <input type="text" class="form-control" placeholder="Leave blank to keep current destination" />
+    </div>
+    <div style="display:flex;gap:10px">
+      <button class="btn btn--ghost btn--full" onclick="closeModal('modifyModal')">Cancel</button>
+      <button class="btn btn--gold btn--full" onclick="closeModal('modifyModal');showToast('Booking modified successfully ✓')">Save Changes</button>
+    </div>
+  </div>
+</div>
+
+<!-- Cancel Modal -->
+<div class="modal-overlay" id="cancelModal">
+  <div class="modal">
+    <div class="modal__header">
+      <h2 class="modal__title">Cancel Booking</h2>
+      <button class="modal__close" onclick="closeModal('cancelModal')">✕</button>
+    </div>
+    <div style="background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:var(--radius-lg);padding:16px 20px;margin-bottom:20px">
+      <strong style="font-size:14px;color:var(--warning)">Refund Eligibility</strong>
+      <p style="font-size:13px;color:var(--gray-400);margin-top:6px;line-height:1.6">
+        Your pickup is on <strong style="color:var(--white)">Jun 12, 2026</strong>. Current time is more than 24 hours away, so you qualify for a <strong style="color:var(--success)">full refund of $125.00 USD</strong>.
+      </p>
+    </div>
+    <p style="font-size:14px;color:var(--gray-400);margin-bottom:24px">Are you sure you want to cancel this booking? Refunds typically process within 5–10 business days.</p>
+    <div style="display:flex;gap:10px">
+      <button class="btn btn--ghost btn--full" onclick="closeModal('cancelModal')">Keep Booking</button>
+      <button class="btn btn--danger btn--full" onclick="closeModal('cancelModal');showToast('Booking cancelled. Refund of $125.00 is processing.')">Yes, Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="../js/main.js"></script>
+</body>
+</html>

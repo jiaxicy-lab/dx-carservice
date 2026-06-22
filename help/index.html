@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Help Center — DX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+<nav class="nav" id="mainNav">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo dx-logo">
+        <img src="../images/logo.svg" alt="DX" class="dx-logo__img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="dx-logo__text" style="display:none">DX</span>
+      </a>
+      <div class="nav__right" style="margin-left:auto">
+        <a href="../index.html" class="btn btn--outline btn--sm btn--round">← Home</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Help Hero -->
+<div style="background:var(--dark);border-bottom:1px solid var(--border);padding:calc(var(--nav-h) + 56px) 0 56px;text-align:center">
+  <div class="container" style="max-width:680px">
+    <h1 style="font-size:40px;margin-bottom:14px">How can we help you?</h1>
+    <p style="color:var(--gray-400);font-size:17px;margin-bottom:32px">Find answers to common questions or get in touch with our support team.</p>
+    <div class="form-field-wrap" style="max-width:540px;margin:0 auto">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" class="form-control form-control--icon" placeholder="Search questions, e.g. 'cancel booking'..." oninput="searchFAQ(this.value)" style="font-size:16px;padding:16px 16px 16px 44px" />
+    </div>
+  </div>
+</div>
+
+<main style="padding:64px 0 96px">
+  <div class="container">
+
+    <!-- Categories -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:64px" id="categories">
+      <a href="#booking" class="feature-card" style="text-decoration:none;text-align:center">
+        <div class="feature-icon" style="margin:0 auto 16px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <h4 style="font-size:15px;font-weight:600;margin-bottom:6px">Booking & Rides</h4>
+        <p style="font-size:13px;color:var(--gray-500)">How to book, modify, cancel</p>
+      </a>
+      <a href="#airport" class="feature-card" style="text-decoration:none;text-align:center">
+        <div class="feature-icon" style="margin:0 auto 16px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21 4 19.5 2.5S18 2 16.5 3.5L13 7 4.8 5.2l-1 .9L8 10l-3.5 1.5c-.5.2-.5.9 0 1.1l1 .5L6 15l2 2 1.5.5.5 1c.2.5.9.5 1.1 0L13 15l4.1 4.2z"/></svg>
+        </div>
+        <h4 style="font-size:15px;font-weight:600;margin-bottom:6px">Airport Transfers</h4>
+        <p style="font-size:13px;color:var(--gray-500)">Flight tracking, waiting time</p>
+      </a>
+      <a href="#payment" class="feature-card" style="text-decoration:none;text-align:center">
+        <div class="feature-icon" style="margin:0 auto 16px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        </div>
+        <h4 style="font-size:15px;font-weight:600;margin-bottom:6px">Payments & Billing</h4>
+        <p style="font-size:13px;color:var(--gray-500)">Payment methods, refunds</p>
+      </a>
+      <a href="#account" class="feature-card" style="text-decoration:none;text-align:center">
+        <div class="feature-icon" style="margin:0 auto 16px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <h4 style="font-size:15px;font-weight:600;margin-bottom:6px">Account & Profile</h4>
+        <p style="font-size:13px;color:var(--gray-500)">Login, profile, addresses</p>
+      </a>
+    </div>
+
+    <!-- FAQ List -->
+    <div style="max-width:760px;margin:0 auto" id="faqList">
+
+      <h2 style="font-size:22px;margin-bottom:24px" id="booking">Booking & Rides</h2>
+
+      <div class="faq-item" style="border-bottom:1px solid var(--border);padding:0 0 0 0;margin-bottom:0">
+        <button class="faq-btn" onclick="toggleFAQ(this)" style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:20px 0;background:none;border:none;color:var(--white);font-size:15px;font-weight:500;cursor:pointer;text-align:left;gap:16px">
+          How do I book a chauffeur service?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;flex-shrink:0;transition:transform .2s"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer" style="display:none;padding:0 0 20px;font-size:14px;color:var(--gray-400);line-height:1.8">
+          Simply enter your trip details in the booking form on our homepage — choose your trip type (One Way, By the Hour, Day Tour, or Airport Transfer), set your route and date, then click "Search Vehicles". Select your vehicle, fill in passenger details, and complete payment. You'll receive an instant confirmation email.
+        </div>
+      </div>
+
+      <div class="faq-item" style="border-bottom:1px solid var(--border)">
+        <button class="faq-btn" onclick="toggleFAQ(this)" style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:20px 0;background:none;border:none;color:var(--white);font-size:15px;font-weight:500;cursor:pointer;text-align:left;gap:16px">
+          How long will the driver wait for me?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;flex-shrink:0;transition:transform .2s"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer" style="display:none;padding:0 0 20px;font-size:14px;color:var(--gray-400);line-height:1.8">
+          <strong style="color:var(--white)">Airport Transfers:</strong> 60 minutes of free waiting from the actual landing time of your flight.<br/>
+          <strong style="color:var(--white)">All other services:</strong> 15 minutes of free waiting per stop.<br/>
+          After the free waiting period, overtime is charged at the vehicle's hourly rate, billed per minute.
+        </div>
+      </div>
+
+      <div class="faq-item" style="border-bottom:1px solid var(--border)">
+        <button class="faq-btn" onclick="toggleFAQ(this)" style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:20px 0;background:none;border:none;color:var(--white);font-size:15px;font-weight:500;cursor:pointer;text-align:left;gap:16px">
+          Can I cancel or modify my booking?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;flex-shrink:0;transition:transform .2s"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer" style="display:none;padding:0 0 20px;font-size:14px;color:var(--gray-400);line-height:1.8">
+          <strong style="color:var(--white)">≥ 24 hours before pickup:</strong> Full refund. You may cancel (modifications require rebooking).<br/>
+          <strong style="color:var(--white)">12–24 hours before pickup:</strong> 50% refund, cancellation only.<br/>
+          <strong style="color:var(--white)">&lt; 12 hours before pickup:</strong> No refund, no cancellation.<br/>
+          To cancel, go to My Orders and click "Cancel" next to your booking.
+        </div>
+      </div>
+
+      <div class="faq-item" style="border-bottom:1px solid var(--border)">
+        <button class="faq-btn" onclick="toggleFAQ(this)" style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:20px 0;background:none;border:none;color:var(--white);font-size:15px;font-weight:500;cursor:pointer;text-align:left;gap:16px">
+          What happens if my luggage exceeds the vehicle capacity?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;flex-shrink:0;transition:transform .2s"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer" style="display:none;padding:0 0 20px;font-size:14px;color:var(--gray-400);line-height:1.8">
+          If your group or luggage exceeds the capacity of one vehicle, we'll suggest upgrading to a larger vehicle or splitting into multiple vehicles. Multiple vehicles can be booked on the same order with a combined bill, billed separately per vehicle.
+        </div>
+      </div>
+
+      <h2 style="font-size:22px;margin-bottom:24px;margin-top:48px" id="airport">Airport Transfers</h2>
+
+      <div class="faq-item" style="border-bottom:1px solid var(--border)">
+        <button class="faq-btn" onclick="toggleFAQ(this)" style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:20px 0;background:none;border:none;color:var(--white);font-size:15px;font-weight:500;cursor:pointer;text-align:left;gap:16px">
+          How does flight tracking work for airport transfers?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;flex-shrink:0;transition:transform .2s"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer" style="display:none;padding:0 0 20px;font-size:14px;color:var(--gray-400);line-height:1.8">
+          We automatically track your flight in real-time. If your flight is delayed, your chauffeur will be informed and will adjust their arrival time accordingly. The 60-minute free waiting period begins from the <em>actual</em> landing time of your flight, not the scheduled time.
+        </div>
+      </div>
+
+      <div class="faq-item" style="border-bottom:1px solid var(--border)">
+        <button class="faq-btn" onclick="toggleFAQ(this)" style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:20px 0;background:none;border:none;color:var(--white);font-size:15px;font-weight:500;cursor:pointer;text-align:left;gap:16px">
+          How will the driver find me at the airport?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;flex-shrink:0;transition:transform .2s"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer" style="display:none;padding:0 0 20px;font-size:14px;color:var(--gray-400);line-height:1.8">
+          Your chauffeur will be waiting at the arrivals hall with a personalized name sign. By default, the sign shows your full name, but you can customize the text (up to 30 characters) during booking. You'll also receive the driver's photo, name, and vehicle plate number 2 hours before pickup.
+        </div>
+      </div>
+
+      <h2 style="font-size:22px;margin-bottom:24px;margin-top:48px" id="payment">Payments & Billing</h2>
+
+      <div class="faq-item" style="border-bottom:1px solid var(--border)">
+        <button class="faq-btn" onclick="toggleFAQ(this)" style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:20px 0;background:none;border:none;color:var(--white);font-size:15px;font-weight:500;cursor:pointer;text-align:left;gap:16px">
+          What payment methods are supported?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;flex-shrink:0;transition:transform .2s"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer" style="display:none;padding:0 0 20px;font-size:14px;color:var(--gray-400);line-height:1.8">
+          We accept Visa, Mastercard, American Express, UnionPay (中国银联), and PayPal. Payments are processed securely by Stripe. We never store your full card number or CVV.
+        </div>
+      </div>
+
+      <div class="faq-item" style="border-bottom:1px solid var(--border)">
+        <button class="faq-btn" onclick="toggleFAQ(this)" style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:20px 0;background:none;border:none;color:var(--white);font-size:15px;font-weight:500;cursor:pointer;text-align:left;gap:16px">
+          How does overtime charging work?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;flex-shrink:0;transition:transform .2s"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer" style="display:none;padding:0 0 20px;font-size:14px;color:var(--gray-400);line-height:1.8">
+          If your trip runs over the booked time or waiting time exceeds the free allowance, overtime is charged at the vehicle's hourly rate, billed per minute. Overtime fees are automatically calculated and charged to your payment method after the trip, and you'll receive an email with a detailed breakdown.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Contact section -->
+    <div style="max-width:760px;margin:48px auto 0;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-xl);padding:36px;text-align:center">
+      <h3 style="font-size:22px;margin-bottom:10px">Still need help?</h3>
+      <p style="color:var(--gray-400);font-size:15px;margin-bottom:28px">Our support team is available 24/7 to assist you.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a href="#" class="btn btn--gold btn--round">💬 Chat with Us</a>
+        <a href="#" class="btn btn--outline btn--round">✉️ Send Email</a>
+        <a href="#" class="btn btn--ghost btn--round">📞 +1 (888) DX-DRIVE</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- Floating chat button -->
+<div id="chatBtn" style="position:fixed;bottom:28px;right:28px;z-index:500">
+  <button class="btn btn--gold btn--round" onclick="showToast('Live chat coming soon! 💬')" style="box-shadow:0 4px 20px rgba(201,169,110,.4)">
+    💬 Chat
+  </button>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="../js/main.js"></script>
+<script>
+function toggleFAQ(btn) {
+  const answer = btn.nextElementSibling;
+  const icon = btn.querySelector('svg');
+  const isOpen = answer.style.display === 'block';
+  answer.style.display = isOpen ? 'none' : 'block';
+  icon.style.transform = isOpen ? '' : 'rotate(180deg)';
+}
+
+function searchFAQ(query) {
+  const items = document.querySelectorAll('.faq-item');
+  const q = query.toLowerCase();
+  items.forEach(item => {
+    const text = item.textContent.toLowerCase();
+    item.style.display = (!q || text.includes(q)) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>

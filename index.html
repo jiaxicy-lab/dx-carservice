@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DX — Premium Chauffeur Service</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Hero specific: force background-image via JS gracefully */
+    .hero { background: var(--black); }
+  </style>
+</head>
+<body>
+
+<!-- ===== Navigation ===== -->
+<nav class="nav nav--transparent" id="mainNav">
+  <div class="container">
+    <div class="nav__inner">
+      <!-- Logo -->
+      <a href="index.html" class="nav__logo dx-logo">
+        <img src="images/logo.svg" alt="DX" class="dx-logo__img" onerror="this.src='images/logo.svg';this.onerror=function(){this.style.display='none';document.getElementById('navLogoFallback').style.display='block'}" />
+        <div id="navLogoFallback" style="display:none;flex-direction:column;line-height:1">
+          <span class="dx-logo__text">DX</span>
+          <span class="dx-logo__tagline">Premium Chauffeur</span>
+        </div>
+      </a>
+
+      <!-- Links -->
+      <ul class="nav__links">
+        <li class="nav__item">
+          <button class="nav__link">
+            Our Services
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav__dropdown">
+            <div class="nav__dropdown-label">Our Services</div>
+            <a href="services/city-to-city.html" class="nav__dropdown-item">🛣 City-to-City Rides</a>
+            <a href="services/airport-transfer.html" class="nav__dropdown-item">✈️ Airport Transfers</a>
+            <a href="services/hourly-hire.html" class="nav__dropdown-item">⏱ Hourly Hire</a>
+            <a href="services/chauffeur.html" class="nav__dropdown-item">🎩 Chauffeur Service</a>
+          </div>
+        </li>
+        <li class="nav__item">
+          <button class="nav__link">
+            For Business
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav__dropdown">
+            <div class="nav__dropdown-label">Corporate Solutions</div>
+            <a href="#" class="nav__dropdown-item">🚌 Official Group Vehicle</a>
+            <a href="#" class="nav__dropdown-item">🏨 Travel Agencies</a>
+            <div class="nav__dropdown-divider"></div>
+            <div class="nav__dropdown-label">Strategic Partnerships</div>
+            <a href="#" class="nav__dropdown-item">✈️ Aviation</a>
+            <a href="#" class="nav__dropdown-item">🚢 Cruise</a>
+            <a href="#" class="nav__dropdown-item">💳 Financial Services</a>
+            <a href="#" class="nav__dropdown-item">🏩 Hotel</a>
+          </div>
+        </li>
+        <li class="nav__item">
+          <a href="help/index.html" class="nav__link">Help</a>
+        </li>
+      </ul>
+
+      <!-- Right -->
+      <div class="nav__right">
+        <button class="nav__lang" id="langToggle">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+          <span id="langLabel">EN</span>
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <a href="#loginModal" class="btn btn--outline btn--sm btn--round" onclick="openModal('loginModal')">Sign In</a>
+        <a href="booking/select-class.html" class="btn btn--gold btn--sm btn--round">Book a Ride</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="hero">
+  <div class="hero__bg">
+    <div class="hero__bg-image"></div>
+  </div>
+  <div class="container hero__content">
+    <div class="hero__text">
+      <div class="hero__badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        DX Premium Chauffeur
+      </div>
+      <h1 class="hero__title">Your <em>Premium</em><br/>Chauffeur,<br/>Wherever You Are</h1>
+      <p class="hero__subtitle">DX delivers professional chauffeurs, luxury vehicles, and seamless booking — airport transfers, city rides, and bespoke journeys.</p>
+    </div>
+
+    <!-- Booking Box -->
+    <div class="booking-box">
+      <div class="booking-tabs" role="tablist">
+        <button class="booking-tab active" onclick="switchTab('oneway', this)" role="tab">One Way</button>
+        <button class="booking-tab" onclick="switchTab('hourly', this)" role="tab">By the Hour</button>
+        <button class="booking-tab" onclick="switchTab('daytour', this)" role="tab">Day Tour</button>
+        <button class="booking-tab" onclick="switchTab('airport', this)" role="tab">Airport Transfer</button>
+      </div>
+
+      <!-- One Way -->
+      <div class="booking-panel active" id="panel-oneway">
+        <div class="booking-grid" style="grid-template-columns:1fr 1fr">
+          <div class="form-group">
+            <label class="form-label">From</label>
+            <div class="form-field-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+              <input type="text" class="form-control form-control--icon" placeholder="Departure city or address" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">To</label>
+            <div class="form-field-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <input type="text" class="form-control form-control--icon" placeholder="Destination city or address" />
+            </div>
+          </div>
+        </div>
+        <div class="booking-grid" style="grid-template-columns:1fr 1fr;margin-bottom:0">
+          <div class="form-group">
+            <label class="form-label">Date</label>
+            <input type="date" class="form-control" id="oneway-date" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Time</label>
+            <input type="time" class="form-control" id="oneway-time" />
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="booking-footer">
+          <span class="booking-note">✓ Free cancellation 24h before pickup</span>
+          <a href="booking/select-class.html" class="btn btn--gold btn--round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            Search Vehicles
+          </a>
+        </div>
+      </div>
+
+      <!-- By the Hour -->
+      <div class="booking-panel" id="panel-hourly">
+        <div class="booking-grid" style="grid-template-columns:1fr 1fr 1fr">
+          <div class="form-group">
+            <label class="form-label">Pickup Location</label>
+            <div class="form-field-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+              <input type="text" class="form-control form-control--icon" placeholder="Starting address" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Duration</label>
+            <select class="form-control">
+              <option value="">Select hours</option>
+              <option value="2">2 hours</option>
+              <option value="3">3 hours</option>
+              <option value="4">4 hours</option>
+              <option value="5">5 hours</option>
+              <option value="6">6 hours</option>
+              <option value="8">8 hours</option>
+              <option value="10">10 hours</option>
+              <option value="12">12 hours</option>
+              <option value="24">24 hours</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Date</label>
+            <input type="date" class="form-control" />
+          </div>
+        </div>
+        <div class="booking-grid" style="grid-template-columns:1fr 3fr;margin-bottom:0">
+          <div class="form-group">
+            <label class="form-label">Start Time</label>
+            <input type="time" class="form-control" />
+          </div>
+          <div></div>
+        </div>
+        <div class="divider"></div>
+        <div class="booking-footer">
+          <span class="booking-note">✓ Minimum 2 hours · 15 min free waiting per stop</span>
+          <a href="booking/select-class.html" class="btn btn--gold btn--round">Search Vehicles</a>
+        </div>
+      </div>
+
+      <!-- Day Tour -->
+      <div class="booking-panel" id="panel-daytour">
+        <div class="booking-grid" style="grid-template-columns:1fr 1fr 1fr 1fr">
+          <div class="form-group">
+            <label class="form-label">Pickup Location</label>
+            <div class="form-field-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+              <input type="text" class="form-control form-control--icon" placeholder="Starting address" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Number of Days</label>
+            <div class="stepper">
+              <button class="stepper__btn" onclick="stepperChange('days', -1)">−</button>
+              <span class="stepper__val" id="val-days">1</span>
+              <button class="stepper__btn" onclick="stepperChange('days', 1)">+</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Start Date</label>
+            <input type="date" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Daily Start Time</label>
+            <input type="time" class="form-control" />
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="booking-footer">
+          <span class="booking-note">✓ Up to 10h service per day · 15 min free waiting</span>
+          <a href="booking/select-class.html" class="btn btn--gold btn--round">Search Vehicles</a>
+        </div>
+      </div>
+
+      <!-- Airport Transfer -->
+      <div class="booking-panel" id="panel-airport">
+        <div class="booking-grid" style="grid-template-columns:1fr 1fr">
+          <div class="form-group">
+            <label class="form-label">Direction</label>
+            <div class="radio-toggle">
+              <input type="radio" name="direction" id="dir-pickup" value="pickup" checked />
+              <label for="dir-pickup">✈️ Pickup (from airport)</label>
+              <input type="radio" name="direction" id="dir-dropoff" value="dropoff" />
+              <label for="dir-dropoff">🚗 Drop-off (to airport)</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Flight Number</label>
+            <div class="form-field-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21 4 19.5 2.5S18 2 16.5 3.5L13 7 4.8 5.2l-1 .9L8 10l-3.5 1.5c-.5.2-.5.9 0 1.1l1 .5L6 15l2 2 1.5.5.5 1c.2.5.9.5 1.1 0L13 15l4.1 4.2z"/></svg>
+              <input type="text" class="form-control form-control--icon" id="flightNo" placeholder="e.g. MU5735" oninput="validateFlight(this)" />
+            </div>
+            <span id="flightInfo" style="font-size:12px;color:var(--gold);display:none;margin-top:4px;"></span>
+          </div>
+        </div>
+        <div class="booking-grid" style="grid-template-columns:1fr 1fr 1fr 1fr">
+          <div class="form-group">
+            <label class="form-label" id="destLabel">Your Destination</label>
+            <div class="form-field-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <input type="text" class="form-control form-control--icon" placeholder="Hotel, address..." />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Date</label>
+            <input type="date" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Passengers</label>
+            <div class="stepper">
+              <button class="stepper__btn" onclick="stepperChange('pax', -1)">−</button>
+              <span class="stepper__val" id="val-pax">2</span>
+              <button class="stepper__btn" onclick="stepperChange('pax', 1)">+</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Luggage</label>
+            <div class="stepper">
+              <button class="stepper__btn" onclick="stepperChange('lug', -1)">−</button>
+              <span class="stepper__val" id="val-lug">2</span>
+              <button class="stepper__btn" onclick="stepperChange('lug', 1)">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="booking-footer">
+          <span class="booking-note">✓ 60 min free waiting · Meet &amp; Greet included</span>
+          <a href="booking/select-class.html" class="btn btn--gold btn--round">Search Vehicles</a>
+        </div>
+      </div>
+    </div><!-- /booking-box -->
+  </div>
+</section>
+
+<!-- ===== Features ===== -->
+<section class="section" style="background: var(--dark); border-top:1px solid var(--border)">
+  <div class="container">
+    <div class="section__head">
+      <div class="section__label">Why Choose Us</div>
+      <h2 class="section__title">The Standard for Premium Ground Transport</h2>
+      <p class="section__subtitle">Every ride is crafted around your comfort, time, and peace of mind.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3 class="feature-title">Transparent Pricing</h3>
+        <p class="feature-desc">No surge pricing, no hidden fees. The price you see is the price you pay — guaranteed upfront before you book.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21 4 19.5 2.5S18 2 16.5 3.5L13 7 4.8 5.2l-1 .9L8 10l-3.5 1.5c-.5.2-.5.9 0 1.1l1 .5L6 15l2 2 1.5.5.5 1c.2.5.9.5 1.1 0L13 15l4.1 4.2z"/></svg>
+        </div>
+        <h3 class="feature-title">Seamless Airport Experience</h3>
+        <p class="feature-desc">Flight tracking included. 60 minutes free waiting time. Professional meet &amp; greet with name sign at arrivals.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3 class="feature-title">Flexible On Your Terms</h3>
+        <p class="feature-desc">Book one-way, hourly, multi-day or airport transfers. Free cancellation up to 24 hours before your ride.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Fleet ===== -->
+<section class="section" id="fleet">
+  <div class="container">
+    <div class="section__head">
+      <div class="section__label">Our Fleet</div>
+      <h2 class="section__title">Premium Vehicles for Every Journey</h2>
+      <p class="section__subtitle">All vehicles are professionally maintained, fully insured, and driven by vetted chauffeurs.</p>
+    </div>
+    <div class="fleet-grid">
+      <a href="booking/select-class.html" class="fleet-card">
+        <div class="fleet-card__image">
+          <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&q=80&auto=format" alt="Business Van / SUV" loading="lazy" />
+          <span class="fleet-card__badge">Most Popular</span>
+        </div>
+        <div class="fleet-card__body">
+          <h3 class="fleet-card__name">Business Van / SUV</h3>
+          <p class="fleet-card__models">Mercedes V-Class · Toyota Alphard</p>
+          <div class="fleet-card__stats">
+            <div class="fleet-stat">
+              <span class="fleet-stat__val">6</span>
+              <span class="fleet-stat__key">Passengers</span>
+            </div>
+            <div class="fleet-stat">
+              <span class="fleet-stat__val">✓</span>
+              <span class="fleet-stat__key">WiFi</span>
+            </div>
+            <div class="fleet-stat">
+              <span class="fleet-stat__val">✓</span>
+              <span class="fleet-stat__key">Large Trunk</span>
+            </div>
+            <div class="fleet-stat">
+              <span class="fleet-stat__val">All</span>
+              <span class="fleet-stat__key">Trip Types</span>
+            </div>
+          </div>
+          <div class="fleet-card__footer">
+            <div class="fleet-card__price">From <strong>$95</strong>/ride</div>
+            <span class="btn btn--gold btn--sm btn--round">Select →</span>
+          </div>
+        </div>
+      </a>
+      <a href="booking/select-class.html" class="fleet-card">
+        <div class="fleet-card__image">
+          <img src="https://images.unsplash.com/photo-1562159074-d31a4f78fce7?w=800&q=80&auto=format" alt="Business Coach" loading="lazy" />
+          <span class="fleet-card__badge">Group Travel</span>
+        </div>
+        <div class="fleet-card__body">
+          <h3 class="fleet-card__name">Business Coach</h3>
+          <p class="fleet-card__models">Toyota Hiace · Mercedes Sprinter</p>
+          <div class="fleet-card__stats">
+            <div class="fleet-stat">
+              <span class="fleet-stat__val">14</span>
+              <span class="fleet-stat__key">Passengers</span>
+            </div>
+            <div class="fleet-stat">
+              <span class="fleet-stat__val">✓</span>
+              <span class="fleet-stat__key">WiFi</span>
+            </div>
+            <div class="fleet-stat">
+              <span class="fleet-stat__val">✓</span>
+              <span class="fleet-stat__key">Luggage Hold</span>
+            </div>
+            <div class="fleet-stat">
+              <span class="fleet-stat__val">All</span>
+              <span class="fleet-stat__key">Trip Types</span>
+            </div>
+          </div>
+          <div class="fleet-card__footer">
+            <div class="fleet-card__price">From <strong>$145</strong>/ride</div>
+            <span class="btn btn--gold btn--sm btn--round">Select →</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== How It Works ===== -->
+<section class="section" style="background: var(--dark); border-top:1px solid var(--border); border-bottom:1px solid var(--border)">
+  <div class="container">
+    <div class="section__head">
+      <div class="section__label">How It Works</div>
+      <h2 class="section__title">Booked in Under 2 Minutes</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step__num">1</div>
+        <h4 class="step__title">Enter Your Trip</h4>
+        <p class="step__desc">Choose your trip type, locations, date and time with our smart booking form.</p>
+      </div>
+      <div class="step">
+        <div class="step__num">2</div>
+        <h4 class="step__title">Select Your Vehicle</h4>
+        <p class="step__desc">Browse available vehicles with upfront pricing — no surprises.</p>
+      </div>
+      <div class="step">
+        <div class="step__num">3</div>
+        <h4 class="step__title">Confirm & Pay</h4>
+        <p class="step__desc">Secure payment via credit card or PayPal. Pre-authorized until ride completion.</p>
+      </div>
+      <div class="step">
+        <div class="step__num">4</div>
+        <h4 class="step__title">Enjoy Your Ride</h4>
+        <p class="step__desc">Your chauffeur details are sent 2 hours before. Track in real-time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="index.html" class="footer__brand-logo dx-logo">
+          <img src="images/logo.svg" alt="DX" style="height:38px;width:auto" onerror="this.src='images/logo.svg';this.onerror=function(){this.style.display='none';this.nextElementSibling.style.display='block'}" />
+          <span class="dx-logo__text" style="font-size:30px;display:none">DX</span>
+        </a>
+        <p class="footer__tagline">DX delivers premium chauffeur service for business and leisure travellers worldwide. Professional, discreet, always on time.</p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social" title="Instagram">IG</a>
+          <a href="#" class="footer__social" title="LinkedIn">in</a>
+          <a href="#" class="footer__social" title="Twitter">𝕏</a>
+          <a href="#" class="footer__social" title="WeChat">微</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-title">Services</div>
+        <a href="services/city-to-city.html" class="footer__link">City-to-City Rides</a>
+        <a href="services/airport-transfer.html" class="footer__link">Airport Transfers</a>
+        <a href="services/hourly-hire.html" class="footer__link">Hourly Hire</a>
+        <a href="services/chauffeur.html" class="footer__link">Chauffeur Service</a>
+      </div>
+      <div>
+        <div class="footer__col-title">Company</div>
+        <a href="#" class="footer__link">About Us</a>
+        <a href="#" class="footer__link">For Business</a>
+        <a href="#" class="footer__link">Become a Driver</a>
+        <a href="#" class="footer__link">Careers</a>
+        <a href="help/index.html" class="footer__link">Help Center</a>
+      </div>
+      <div>
+        <div class="footer__col-title">Support</div>
+        <a href="#" class="footer__link">Contact Us</a>
+        <a href="#" class="footer__link">Cancellation Policy</a>
+        <a href="#" class="footer__link">Pricing & Fees</a>
+        <a href="#" class="footer__link">Safety</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2026 DX Premium Chauffeur. All rights reserved.</p>
+      <div class="footer__legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== Login Modal ===== -->
+<div class="modal-overlay" id="loginModal">
+  <div class="modal">
+    <div class="modal__header">
+      <h2 class="modal__title">Sign In</h2>
+      <button class="modal__close" onclick="closeModal('loginModal')">✕</button>
+    </div>
+    <div class="form-group" style="margin-bottom:16px">
+      <label class="form-label">Email Address</label>
+      <input type="email" class="form-control" placeholder="you@example.com" />
+    </div>
+    <div class="form-group" style="margin-bottom:24px">
+      <label class="form-label">Password</label>
+      <input type="password" class="form-control" placeholder="••••••••" />
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+      <label style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--gray-400);cursor:pointer">
+        <input type="checkbox" /> Remember me
+      </label>
+      <a href="#" style="font-size:13px;color:var(--gold)">Forgot password?</a>
+    </div>
+    <button class="btn btn--gold btn--full" onclick="closeModal('loginModal');showToast('Welcome back! ✓')">Sign In</button>
+    <div class="divider"></div>
+    <p style="text-align:center;font-size:14px;color:var(--gray-500)">
+      Don't have an account? <a href="#" style="color:var(--gold)">Create one →</a>
+    </p>
+  </div>
+</div>
+
+<!-- ===== Toast ===== -->
+<div class="toast" id="toast"></div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

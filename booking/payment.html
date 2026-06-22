@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment — DX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+<nav class="nav" id="mainNav">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo dx-logo">
+        <img src="../images/logo.svg" alt="DX" class="dx-logo__img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="dx-logo__text" style="display:none">DX</span>
+      </a>
+      <div class="nav__right" style="margin-left:auto">
+        <a href="confirm.html" class="btn btn--ghost btn--sm">← Back</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="booking-steps page-offset">
+  <div class="booking-step-item done"><span class="booking-step-item__num">✓</span> Search</div>
+  <div class="booking-step-item done"><span class="booking-step-item__num">✓</span> Select Vehicle</div>
+  <div class="booking-step-item done"><span class="booking-step-item__num">✓</span> Confirm</div>
+  <div class="booking-step-item active"><span class="booking-step-item__num">4</span> Payment</div>
+</div>
+
+<main style="padding:48px 0 96px">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 360px;gap:32px;align-items:start">
+
+      <!-- Left: Payment Form -->
+      <div>
+        <h1 style="font-size:26px;margin-bottom:6px">Secure Payment</h1>
+        <p style="color:var(--gray-500);font-size:14px;margin-bottom:32px">Your payment is pre-authorized. You will only be charged after your ride is complete.</p>
+
+        <!-- Payment Method Toggle -->
+        <div class="payment-card" style="margin-bottom:24px">
+          <h3 class="payment-card__title">Payment Method</h3>
+          <div class="payment-methods" id="paymentMethods">
+            <button class="payment-method active" onclick="selectMethod(this, 'card')" id="method-card">
+              <span>💳</span> Credit / Debit Card
+            </button>
+            <button class="payment-method" onclick="selectMethod(this, 'paypal')" id="method-paypal">
+              <span style="color:#003087;font-weight:700;font-size:14px">Pay</span><span style="color:#009cde;font-weight:700;font-size:14px">Pal</span>
+            </button>
+            <button class="payment-method" onclick="selectMethod(this, 'unionpay')" id="method-unionpay">
+              <span style="color:#e31c23;font-weight:700;font-size:13px">银联</span>
+            </button>
+          </div>
+
+          <!-- Card form -->
+          <div id="form-card">
+            <!-- Card preview -->
+            <div class="card-preview" id="cardPreview">
+              <div class="card-preview__number" id="previewNumber">•••• •••• •••• ••••</div>
+              <div class="card-preview__bottom">
+                <div>
+                  <div class="card-preview__label">Card Holder</div>
+                  <div class="card-preview__val" id="previewName">FULL NAME</div>
+                </div>
+                <div>
+                  <div class="card-preview__label">Expires</div>
+                  <div class="card-preview__val" id="previewExpiry">MM / YY</div>
+                </div>
+                <div class="card-preview__brand" id="previewBrand">VISA</div>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom:16px">
+              <label class="form-label">Card Number</label>
+              <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19"
+                oninput="formatCard(this)" />
+            </div>
+            <div class="booking-grid" style="grid-template-columns:1fr 1fr;margin-bottom:16px">
+              <div class="form-group">
+                <label class="form-label">Expiry Date</label>
+                <input type="text" class="form-control" id="cardExpiry" placeholder="MM / YY" maxlength="7"
+                  oninput="formatExpiry(this)" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">CVV</label>
+                <input type="text" class="form-control" id="cardCvv" placeholder="•••" maxlength="4" />
+              </div>
+            </div>
+            <div class="form-group" style="margin-bottom:0">
+              <label class="form-label">Cardholder Name</label>
+              <input type="text" class="form-control" id="cardName" placeholder="As shown on card"
+                oninput="document.getElementById('previewName').textContent = this.value.toUpperCase() || 'FULL NAME'" />
+            </div>
+          </div>
+
+          <!-- PayPal placeholder -->
+          <div id="form-paypal" style="display:none;padding:32px;text-align:center;background:var(--dark);border-radius:var(--radius);border:1px dashed var(--border)">
+            <div style="font-size:28px;margin-bottom:12px">🅿️</div>
+            <p style="font-size:14px;color:var(--gray-400)">You'll be redirected to PayPal to complete your payment securely.</p>
+            <!-- Stripe Payment Element will mount here (PayPal via Stripe) -->
+            <div id="stripe-paypal-element" style="margin-top:16px;"></div>
+          </div>
+
+          <!-- UnionPay placeholder -->
+          <div id="form-unionpay" style="display:none;padding:32px;text-align:center;background:var(--dark);border-radius:var(--radius);border:1px dashed var(--border)">
+            <div style="font-size:28px;margin-bottom:12px">🏦</div>
+            <p style="font-size:14px;color:var(--gray-400)">银联卡支付，请填写您的银联卡信息。</p>
+            <!-- Stripe UnionPay Element will mount here -->
+            <div id="stripe-unionpay-element" style="margin-top:16px;"></div>
+          </div>
+        </div>
+
+        <!-- Stripe Element placeholder (real integration) -->
+        <div style="background:var(--dark);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 20px;margin-bottom:24px;font-size:12px;color:var(--gray-600);display:flex;align-items:center;gap:10px">
+          <span style="font-size:16px">🔒</span>
+          <span>Payments are processed securely by <strong style="color:var(--gray-400)">Stripe</strong>. DX never stores your card details. SSL encrypted.</span>
+        </div>
+
+        <!-- Save card option -->
+        <label style="display:flex;align-items:center;gap:10px;margin-bottom:28px;cursor:pointer;font-size:14px;color:var(--gray-400)">
+          <input type="checkbox" checked />
+          Save this card for future bookings
+        </label>
+
+        <button class="btn btn--gold btn--full btn--lg btn--round" onclick="simulatePayment()">
+          🔒 Pay $125.00 USD
+        </button>
+
+        <p style="text-align:center;font-size:12px;color:var(--gray-600);margin-top:16px">
+          By clicking Pay, you authorize a pre-authorization hold. Final charge occurs after trip completion.
+        </p>
+      </div>
+
+      <!-- Right: Order Summary -->
+      <div style="position:sticky;top:calc(var(--nav-h) + 24px)">
+        <div class="trip-summary" style="margin-bottom:16px">
+          <div class="trip-summary__title">Order Summary</div>
+          <div class="trip-summary__row">
+            <div class="trip-summary__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
+            <div>
+              <div class="trip-summary__label">Vehicle</div>
+              <div class="trip-summary__val">Business Van / SUV</div>
+            </div>
+          </div>
+          <div class="trip-summary__row">
+            <div class="trip-summary__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+            </div>
+            <div>
+              <div class="trip-summary__label">Route</div>
+              <div class="trip-summary__val">PVG → Ritz-Carlton Pudong</div>
+            </div>
+          </div>
+          <div class="trip-summary__row">
+            <div class="trip-summary__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <div>
+              <div class="trip-summary__label">Date</div>
+              <div class="trip-summary__val">Jun 12, 2026 · 14:35</div>
+            </div>
+          </div>
+          <div class="trip-summary__row">
+            <div class="trip-summary__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div>
+              <div class="trip-summary__label">Passenger</div>
+              <div class="trip-summary__val">John Smith</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="price-summary">
+          <div class="price-summary__title">Total Due</div>
+          <div class="price-summary__row">
+            <span class="price-summary__label">Base fare</span>
+            <span class="price-summary__val">$110.00</span>
+          </div>
+          <div class="price-summary__row">
+            <span class="price-summary__label">Airport surcharge</span>
+            <span class="price-summary__val">$15.00</span>
+          </div>
+          <div class="price-summary__row price-summary__row--total">
+            <span class="price-summary__label">Pre-authorization</span>
+            <span class="price-summary__val price-summary__val--gold">$125.00 USD</span>
+          </div>
+        </div>
+
+        <div style="margin-top:16px;display:flex;gap:12px;justify-content:center">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/200px-Visa_Inc._logo.svg.png" alt="Visa" style="height:20px;opacity:.6;filter:grayscale(1)" />
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/200px-Mastercard-logo.svg.png" alt="Mastercard" style="height:20px;opacity:.6;filter:grayscale(1)" />
+          <span style="font-size:11px;color:var(--gray-600);display:flex;align-items:center">AMEX · UnionPay</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<!-- Processing overlay -->
+<div id="processingOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:3000;display:none;align-items:center;justify-content:center;flex-direction:column;gap:16px">
+  <div style="width:48px;height:48px;border:3px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin 1s linear infinite"></div>
+  <p style="color:var(--gray-400);font-size:14px">Processing payment...</p>
+</div>
+<style>
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+
+<div class="toast" id="toast"></div>
+<script src="../js/main.js"></script>
+<script>
+function selectMethod(btn, type) {
+  document.querySelectorAll('.payment-method').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  ['card','paypal','unionpay'].forEach(t => {
+    const el = document.getElementById('form-' + t);
+    if (el) el.style.display = t === type ? '' : 'none';
+  });
+}
+
+function formatCard(input) {
+  let val = input.value.replace(/\D/g, '').substring(0, 16);
+  input.value = val.replace(/(.{4})/g, '$1 ').trim();
+  const display = val.padEnd(16, '•').replace(/(.{4})/g, '$1 ').trim();
+  document.getElementById('previewNumber').textContent = display;
+  const brands = { '4': 'VISA', '5': 'MC', '3': 'AMEX', '6': '银联' };
+  document.getElementById('previewBrand').textContent = brands[val[0]] || '----';
+}
+
+function formatExpiry(input) {
+  let val = input.value.replace(/\D/g, '').substring(0, 4);
+  if (val.length > 2) val = val.substring(0,2) + ' / ' + val.substring(2);
+  input.value = val;
+  document.getElementById('previewExpiry').textContent = val || 'MM / YY';
+}
+
+function simulatePayment() {
+  const overlay = document.getElementById('processingOverlay');
+  overlay.style.display = 'flex';
+  setTimeout(() => {
+    overlay.style.display = 'none';
+    window.location.href = 'success.html';
+  }, 2200);
+}
+</script>
+</body>
+</html>

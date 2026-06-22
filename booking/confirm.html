@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Confirm Booking — DX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+<nav class="nav" id="mainNav">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo dx-logo">
+        <img src="../images/logo.svg" alt="DX" class="dx-logo__img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="dx-logo__text" style="display:none">DX</span>
+      </a>
+      <div class="nav__right" style="margin-left:auto">
+        <a href="select-class.html" class="btn btn--ghost btn--sm">← Back</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="booking-steps page-offset">
+  <div class="booking-step-item done"><span class="booking-step-item__num">✓</span> Search</div>
+  <div class="booking-step-item done"><span class="booking-step-item__num">✓</span> Select Vehicle</div>
+  <div class="booking-step-item active"><span class="booking-step-item__num">3</span> Confirm</div>
+  <div class="booking-step-item"><span class="booking-step-item__num">4</span> Payment</div>
+</div>
+
+<main style="padding:48px 0 96px">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 360px;gap:32px;align-items:start">
+
+      <!-- Left: Contact & Options -->
+      <div>
+        <h1 style="font-size:26px;margin-bottom:6px">Confirm Your Booking</h1>
+        <p style="color:var(--gray-500);font-size:14px;margin-bottom:32px">Review your trip details and provide contact information.</p>
+
+        <!-- Contact Info -->
+        <div class="payment-card" style="margin-bottom:24px">
+          <h3 class="payment-card__title">Contact Information</h3>
+          <div class="booking-grid" style="grid-template-columns:1fr 1fr;margin-bottom:16px">
+            <div class="form-group">
+              <label class="form-label">First Name</label>
+              <input type="text" class="form-control" placeholder="John" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Last Name</label>
+              <input type="text" class="form-control" placeholder="Smith" />
+            </div>
+          </div>
+          <div class="booking-grid" style="grid-template-columns:120px 1fr;margin-bottom:0">
+            <div class="form-group">
+              <label class="form-label">Country Code</label>
+              <select class="form-control">
+                <option value="+1">🇺🇸 +1</option>
+                <option value="+44">🇬🇧 +44</option>
+                <option value="+86" selected>🇨🇳 +86</option>
+                <option value="+81">🇯🇵 +81</option>
+                <option value="+65">🇸🇬 +65</option>
+                <option value="+852">🇭🇰 +852</option>
+                <option value="+61">🇦🇺 +61</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Mobile Number</label>
+              <input type="tel" class="form-control" placeholder="138 0000 0000" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Meet & Greet Sign (Airport only) -->
+        <div class="payment-card" style="margin-bottom:24px">
+          <h3 class="payment-card__title">Meet &amp; Greet Sign</h3>
+          <p style="font-size:13px;color:var(--gray-400);margin-bottom:16px">Your chauffeur will hold a sign at arrivals. Default is your full name.</p>
+          <div class="form-group">
+            <label class="form-label">Sign Text <span style="color:var(--gray-600)">(max 30 characters)</span></label>
+            <input type="text" class="form-control" placeholder="Your name or custom message" maxlength="30" id="signText" oninput="updateSignCount(this)" />
+            <span style="font-size:12px;color:var(--gray-600);margin-top:4px;display:block" id="signCount">0 / 30</span>
+          </div>
+          <div style="margin-top:16px;background:var(--dark);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 24px;text-align:center">
+            <div style="font-size:11px;color:var(--gray-600);margin-bottom:8px;letter-spacing:1px;text-transform:uppercase">Sign Preview</div>
+            <div style="font-family:'Playfair Display',serif;font-size:22px;color:var(--white);letter-spacing:1px" id="signPreview">JOHN SMITH</div>
+            <div style="font-size:11px;color:var(--gold);margin-top:6px;">DX · Premium Chauffeur Service</div>
+          </div>
+        </div>
+
+        <!-- Special Requests -->
+        <div class="payment-card" style="margin-bottom:24px">
+          <h3 class="payment-card__title">Special Requests <span style="font-size:13px;color:var(--gray-500);font-weight:400">(optional)</span></h3>
+          <div class="form-group">
+            <label class="form-label">Notes for Driver</label>
+            <textarea class="form-control" rows="3" placeholder="Child seat needed, prefer a quiet ride, meeting point details..."></textarea>
+          </div>
+        </div>
+
+        <!-- Policy Note -->
+        <div style="background:var(--dark);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 24px;margin-bottom:28px">
+          <h4 style="font-size:14px;font-weight:600;margin-bottom:12px">Cancellation Policy</h4>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;justify-content:space-between;font-size:13px">
+              <span style="color:var(--gray-400)">≥ 24 hours before pickup</span>
+              <span style="color:var(--success);font-weight:600">Full refund</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:13px">
+              <span style="color:var(--gray-400)">12–24 hours before pickup</span>
+              <span style="color:var(--warning);font-weight:600">50% refund</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:13px">
+              <span style="color:var(--gray-400)">&lt; 12 hours before pickup</span>
+              <span style="color:var(--danger);font-weight:600">No refund</span>
+            </div>
+          </div>
+        </div>
+
+        <label style="display:flex;align-items:flex-start;gap:12px;margin-bottom:24px;cursor:pointer">
+          <input type="checkbox" id="termsCheck" style="margin-top:3px;flex-shrink:0" />
+          <span style="font-size:13px;color:var(--gray-400)">
+            I agree to the <a href="#" style="color:var(--gold)">Terms of Service</a>,
+            <a href="#" style="color:var(--gold)">Cancellation Policy</a>, and
+            <a href="#" style="color:var(--gold)">Privacy Policy</a>.
+          </span>
+        </label>
+
+        <a href="payment.html" class="btn btn--gold btn--full btn--lg btn--round" onclick="return validateConfirm()">
+          Continue to Payment →
+        </a>
+      </div>
+
+      <!-- Right: Summary -->
+      <div style="position:sticky;top:calc(var(--nav-h) + 24px)">
+        <div class="trip-summary" style="margin-bottom:16px">
+          <div class="trip-summary__title">Trip Summary</div>
+          <div class="trip-summary__row">
+            <div class="trip-summary__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+            </div>
+            <div>
+              <div class="trip-summary__label">From</div>
+              <div class="trip-summary__val">Shanghai Pudong Intl Airport</div>
+            </div>
+          </div>
+          <div class="trip-summary__row">
+            <div class="trip-summary__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="trip-summary__label">To</div>
+              <div class="trip-summary__val">The Ritz-Carlton Shanghai, Pudong</div>
+            </div>
+          </div>
+          <div class="trip-summary__row">
+            <div class="trip-summary__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <div>
+              <div class="trip-summary__label">Date</div>
+              <div class="trip-summary__val">Jun 12, 2026 · 14:35</div>
+            </div>
+          </div>
+          <div class="trip-summary__row">
+            <div class="trip-summary__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
+            <div>
+              <div class="trip-summary__label">Vehicle</div>
+              <div class="trip-summary__val">Business Van / SUV</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="price-summary">
+          <div class="price-summary__title">Price Breakdown</div>
+          <div class="price-summary__row">
+            <span class="price-summary__label">Base fare</span>
+            <span class="price-summary__val">$110.00</span>
+          </div>
+          <div class="price-summary__row">
+            <span class="price-summary__label">Airport surcharge</span>
+            <span class="price-summary__val">$15.00</span>
+          </div>
+          <div class="price-summary__row">
+            <span class="price-summary__label">Meet &amp; Greet</span>
+            <span class="price-summary__val">Included</span>
+          </div>
+          <div class="price-summary__row">
+            <span class="price-summary__label">Taxes &amp; fees</span>
+            <span class="price-summary__val">$0.00</span>
+          </div>
+          <div class="price-summary__row price-summary__row--total">
+            <span class="price-summary__label">Total (pre-auth)</span>
+            <span class="price-summary__val price-summary__val--gold">$125.00 USD</span>
+          </div>
+        </div>
+        <p style="font-size:11px;color:var(--gray-600);margin-top:12px;line-height:1.6">Payment is pre-authorized now. Final charge occurs after trip completion, including any overtime fees.</p>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<div class="toast" id="toast"></div>
+<script src="../js/main.js"></script>
+<script>
+function updateSignCount(input) {
+  const count = document.getElementById('signCount');
+  const preview = document.getElementById('signPreview');
+  count.textContent = input.value.length + ' / 30';
+  preview.textContent = input.value.toUpperCase() || 'JOHN SMITH';
+}
+
+function validateConfirm() {
+  const terms = document.getElementById('termsCheck');
+  if (!terms.checked) {
+    showToast('Please accept the terms to continue.');
+    return false;
+  }
+  return true;
+}
+</script>
+</body>
+</html>
